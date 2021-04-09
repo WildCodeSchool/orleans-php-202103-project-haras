@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+:root {
+    --primary-color: #499328;
+    --secondary-color: #E5A500;
+    --dark: #000000;
+    --light: #FFFFFF;
+    --grey: #CECECE;
+    --smoke-light: #F5F5F5;
+    --main-font: 'Varela Round', sans-serif,'HelveticaNeue','Helvetica Neue','Helvetica-Neue',Helvetica,Arial,sans-serif;
+}
+
+h1 {
+    font-family: var(--main-font);
+}
