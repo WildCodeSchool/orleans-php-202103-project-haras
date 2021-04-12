@@ -32,3 +32,10 @@
     background-color: var(--primary-color);
     font-family: var(--title-font);
 }
+
+@media screen and (max-width: 575px){
+    .btn-nav-admin{
+        width: 100%;
+        margin-bottom: 2px;
+    }
+}
