@@ -26,6 +26,10 @@
 }
 
 .btn-nav-admin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     padding: 0;
     border-radius: 7px;
     width: 100px;
