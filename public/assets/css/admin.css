@@ -6,3 +6,29 @@
 .navbar-light .navbar-nav .nav-link{
     color: var(--dark);
 }
+
+.navbar{
+    position: relative;
+}
+
+.navbar-nav{
+    width: 100%;
+    justify-content: space-around;
+}
+
+.navbar::before{
+    position: absolute;
+    top: 0;
+    content: ' ';
+    width: 100%;
+    height: 6px;
+    background-color: var(--primary-color);
+}
+
+.btn-nav-admin{
+    padding: 0;
+    border-radius: 7px;
+    width: 100px;
+    background-color: var(--primary-color);
+    font-family: var(--title-font);
+}
