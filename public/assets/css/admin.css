@@ -1,0 +1,8 @@
+.nav-admin{
+    background-color: var(--light);
+    font-family: var(--title-font);
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color: var(--dark);
+}
