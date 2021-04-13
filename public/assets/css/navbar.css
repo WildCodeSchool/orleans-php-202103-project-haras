@@ -1,9 +1,9 @@
 :root{
-    --full: 100%;
+    --full-relative: 100%;
 }
 
 .navbar-nav {
-    width: var(--full);
+    width: var(--full-relative);
     justify-content: space-around;
 }
 

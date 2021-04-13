@@ -6,7 +6,7 @@
     position: absolute;
     top: 0;
     content: ' ';
-    width: var(--full);
+    width: var(--full-relative);
     height: 6px;
     background-color: var(--primary-color);
 }
