@@ -1,8 +1,12 @@
 {% extends 'layout.html.twig' %}
-{% block content %}
+{% block stylesheet %}
+	<link rel="stylesheet" href="/assets/css/admin.css">
+{% endblock %}
+{% block navbar %}
 	<header>
-		{% include "Admin/components/_navbar.html.twig" %}
+		{% include "Admin/Includes/_navbar.html.twig" %}
 	</header>
-	<main>
-	</main>
+{% endblock %}
+{% block content %}
+	<main></main>
 {% endblock %}
