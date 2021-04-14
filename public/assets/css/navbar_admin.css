@@ -52,4 +52,8 @@
         width: 100%;
         margin-bottom: 2px;
     }
+
+    .navAdmin .navbar-brand{
+        width: 70%;
+    }
 }
