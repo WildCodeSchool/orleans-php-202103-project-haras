@@ -4,16 +4,17 @@
     padding: 5% 20%;
 }
 
-.form-course-admin  .form-group, .form-check{
+.form-course-admin .form-group
+{
     margin-bottom: 20px;
 }
 
-.form-course-admin  .btn-formulary{
+.form-course-admin .btn-formulary{
     background-color: var(--primary-color);
     border-color: var(--primary-color);
 }
 
-.form-course-admin  .btn-formulary:hover{
+.form-course-admin .btn-formulary:hover{
     background-color: var(--primary-color);
     border-color: var(--primary-color);
     color: var(--secondary-color);
