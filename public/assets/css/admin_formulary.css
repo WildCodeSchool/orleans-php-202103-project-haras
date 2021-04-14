@@ -1,0 +1,20 @@
+.form-course-admin form{
+    display: flex;
+    flex-direction: column;
+    padding: 5% 20%;
+}
+
+.form-course-admin  .form-group, .form-check{
+    margin-bottom: 20px;
+}
+
+.form-course-admin  .btn-formulary{
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.form-course-admin  .btn-formulary:hover{
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--secondary-color);
+}

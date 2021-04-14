@@ -1,0 +1,51 @@
+<div class="form-course-admin">
+	<form action="" method="POST">
+		<div class="form-group">
+			<label for="name">Nom du cours</label>
+			<input class="form-control" type="text" name="name" id="name">
+		</div>
+		<div class="form-group">
+			<label for="time-start">Heure de début</label>
+			<input class="form-control" type="time" name="time-start" id="time-start" min="09:00" max="22:00" pattern="[0-9]{2}:[0-9]{2}" placeholder="00:00">
+		</div>
+		<div class="form-group">
+			<label for="time-finsih">Heure de fin</label>
+			<input class="form-control" type="time" name="time-finsih" id="time-finsih" min="09:00" max="22:00" pattern="[0-9]{2}:[0-9]{2}" placeholder="00:00">
+		</div>
+		<div class="form-group">
+			<label for="difficulty">Niveau du cours</label>
+			<select class="form-control" name="difficulty" id="difficulty">
+				<option value="">Selectionnez le niveau du cours</option>
+				<option value="">Eveil Poney</option>
+				<option value="">Débutant</option>
+				<option value="">Poney de bronze</option>
+				<option value="">Poney d'argent</option>
+				<option value="">Poney d'or</option>
+				<option value="">Galop de bronze</option>
+				<option value="">Galop 1</option>
+				<option value="">Galop Argent</option>
+				<option value="">Galop Or</option>
+				<option value="">Galop 2</option>
+				<option value="">Galop 3</option>
+				<option value="">Galop 4</option>
+				<option value="">Galop 5</option>
+				<option value="">Galop 6</option>
+				<option value="">Galop 7</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="target">Cible du cours</label>
+			<select class="form-control" name="target" id="target">
+				<option value="">Selectionnez la cible de votre cours</option>
+				<option value="beginner">Débutant</option>
+				<option value="teenager">Adolescent</option>
+				<option value="adult">Adulte</option>
+			</select>
+		</div>
+		<div class="form-check">
+			<label class="form-check-label" for="competition">Compétition</label>
+			<input class="form-check-input" type="checkbox" name="competition" id="competition">
+		</div>
+		<button class="btn btn-primary btn-formulary" type="submit">Enregistrer</button>
+	</form>
+</div>
