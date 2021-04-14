@@ -6,6 +6,7 @@
     background-color: var(--grey);
     flex-direction: column;
     flex-wrap: wrap;
+    font-family: var(--text-font);
 }
 
 .tab {
