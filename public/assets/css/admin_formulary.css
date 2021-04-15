@@ -1,8 +1,34 @@
-.form-course-admin form {
+:root {
+    --alerte-radius: 5px;
+    --alerte-padding: 10px
+}
+
+.form-course-admin{
+    --success-bg-color: #c2faa8;
+    --errors-bg-color: rgb(240, 153, 153);
     --formulary-center: 5% 20%;
+    padding: var(--formulary-center);
+}
+
+.form-course-admin .errors {
+    list-style: none;
+    background-color: var(--errors-bg-color);
+    color: red;
+    border-radius: var(--alerte-radius);
+    padding: var(--alerte-padding);
+}
+
+.form-course-admin .success {
+    list-style: none;
+    background-color: var(--success-bg-color);
+    color: var(--primary-color);
+    border-radius: var(--alerte-radius);
+    padding: var(--alerte-padding);
+}
+
+.form-course-admin form {
     display: flex;
     flex-direction: column;
-    padding: var(--formulary-center);
 }
 
 .form-course-admin .form-group {
