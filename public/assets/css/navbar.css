@@ -1,0 +1,66 @@
+:root{
+    --full-relative: 100%;
+}
+
+.nav .navbar {
+    position: relative;
+}
+
+.nav::before {
+    --border-height: 6px;
+    position: absolute;
+    top: 0;
+    content: ' ';
+    width: var(--full-relative);
+    height: var(--border-height);
+    background-color: var(--primary-color);
+}
+
+.nav .navbar-nav {
+    width: var(--full-relative);
+    justify-content: space-around;
+}
+
+.nav .btn-nav {
+    --width-btn: 90px;
+    --height-btn: 35px;
+    --radius-btn: 100px;
+    --padding-btn: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: var(--padding-btn);
+    border-radius: var(--radius-btn);
+    width: var(--width-btn);
+    height: var(--height-btn);
+    background-color: var(--primary-color);
+    font-family: var(--title-font);
+    text-decoration: none;
+    color: var(--light);
+}
+
+.nav .custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.nav .btn-nav:hover {
+    color: var(--secondary-color);
+}
+
+.nav .navbar-toggler {
+    background-color: var(--primary-color);
+}
+
+@media screen and (max-width: 575px) {
+    .nav .btn-nav {
+        --spacing-bottom-btn: 2px;
+        width: var(--full-relative);
+        margin-bottom: var(--spacing-bottom-btn);
+    }
+
+    .nav .navbar-brand{
+        --reduce: 30%;
+        width: calc(var(--full-relative) - var(--reduce));
+    }
+}
