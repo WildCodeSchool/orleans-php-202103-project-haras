@@ -15,7 +15,7 @@
     align-items: center; 
 }
 
-.tab_title {
+.tab-title {
     --margin-top: 0.8em;
     --font-size: 1.2em;
     margin-top: var(--margin-top);
@@ -24,17 +24,17 @@
     text-align: center;
 }
 
-.tab_text {
+.tab-text {
     display: flex;
     flex-wrap: wrap;
 }
 
-.btn_insc {
+.btn-insc {
     display: flex;
     justify-content: center;
 }
 
-.btn_inscription {
+.btn-inscription {
     --margin: 3em;
     --width: 10em;
     margin-bottom: var(--margin);
@@ -47,7 +47,7 @@
     border: none;
 }
 
-.btn_course {
+.btn-course {
     --margin: 0.5em;
     --height: 3em;
     --width: 13em;
@@ -65,15 +65,15 @@
     align-items: center;
 }
 
-.btn_inscription:hover {
+.btn-inscription:hover {
     text-decoration: underline;
 }
 
-.btn_course:hover {
+.btn-course:hover {
     color: var(--secondary-color);
 }
 
-.img_course {
+.img-course {
     --padding: 3em;
     --margin: 1em;
     background-color: var(--grey);
