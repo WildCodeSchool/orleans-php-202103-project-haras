@@ -1,11 +1,14 @@
 :root {
     --alerte-radius: 5px;
-    --alerte-padding: 10px
+    --alerte-padding: 10px;
+    --success-bg-color: #c2faa8;
+    --success-font-color: var(--primary-color);
+    --errors-bg-color: rgb(240, 153, 153);
+    --errors-font-color: red;
+
 }
 
-.form-course-admin{
-    --success-bg-color: #c2faa8;
-    --errors-bg-color: rgb(240, 153, 153);
+.form-course-admin {
     --formulary-center: 5% 20%;
     padding: var(--formulary-center);
 }
@@ -13,7 +16,7 @@
 .form-course-admin .errors {
     list-style: none;
     background-color: var(--errors-bg-color);
-    color: red;
+    color: var(--errors-font-color);
     border-radius: var(--alerte-radius);
     padding: var(--alerte-padding);
 }
@@ -21,7 +24,7 @@
 .form-course-admin .success {
     list-style: none;
     background-color: var(--success-bg-color);
-    color: var(--primary-color);
+    color: var(--success-font-color);
     border-radius: var(--alerte-radius);
     padding: var(--alerte-padding);
 }
