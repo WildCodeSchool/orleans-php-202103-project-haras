@@ -65,10 +65,29 @@
     }
 }
 
-/*Mobile version*/
+/* Position of card */
+.card{
+    --background-color: #11ffee00;
+    background-color: var(--background-color);
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+.list-group-item{
+    background-color: var(--background-color); 
+    color: #fff;
+}
 
+/*Mobile version*/
 @media screen and (max-width: 670px){
     .slider{
         background-size: cover;
+    }
+}
+@media screen and (max-width: 400px){
+    .pincipal, h1, p{
+        overflow-wrap: anywhere;
+        font-size: 12px;
     }
 }
