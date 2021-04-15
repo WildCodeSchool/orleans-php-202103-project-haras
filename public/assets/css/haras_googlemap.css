@@ -1,0 +1,13 @@
+.haras-googlemap {
+    display: flex;
+    justify-content: center;
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5em;
+    padding: 0.1em;
+}
+
+@media screen and (max-width: 800px) {
+    .haras-googlemap {
+        margin: 3em;
+    }
+}
