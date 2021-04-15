@@ -1,22 +1,21 @@
-.form-course-admin form{
+.form-course-admin form {
     --formulary-center: 5% 20%;
     display: flex;
     flex-direction: column;
     padding: var(--formulary-center);
 }
 
-.form-course-admin .form-group
-{
+.form-course-admin .form-group {
     --spacing-fields: 20px;
     margin-bottom: var(--spacing-fields);
 }
 
-.form-course-admin .btn-formulary{
+.form-course-admin .btn-formulary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
 }
 
-.form-course-admin .btn-formulary:hover{
+.form-course-admin .btn-formulary:hover {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
     color: var(--secondary-color);
