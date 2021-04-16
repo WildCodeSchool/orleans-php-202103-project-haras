@@ -45,7 +45,7 @@ class AdminController extends AbstractController
             'name' => 255,
             'day' => 8,
             'time' => '',
-            'duration' => '',
+            'duration' => 120,
             'teacher' => '',
             'capacity' => 20,
         ]);
@@ -70,6 +70,10 @@ class AdminController extends AbstractController
 
         if (strlen($formData['day']) > INPUTS_VALIDATIONS['day']) {
             $errors[] = 'Le jours ne doit pas dépasser ' . INPUTS_VALIDATIONS['day'] . ' charactères.';
+        }
+
+        if ($formData['duration'] > INPUTS_VALIDATIONS['duration']) {
+            $errors[] = 'La durée ne doit pas dépasser ' . INPUTS_VALIDATIONS['duration'] . ' minutes';
         }
 
 
