@@ -16,16 +16,16 @@
     list-style: none;
     background-color: var(--errors-bg-color);
     color: var(--errors-font-color);
-    border-radius: var(--alerte-radius);
-    padding: var(--alerte-padding);
+    border-radius: var(--alert-radius);
+    padding: var(--alert-padding);
 }
 
 .form-course-admin .success {
     list-style: none;
     background-color: var(--success-bg-color);
     color: var(--success-font-color);
-    border-radius: var(--alerte-radius);
-    padding: var(--alerte-padding);
+    border-radius: var(--alert-radius);
+    padding: var(--alert-padding);
 }
 
 .form-course-admin form {
