@@ -1,10 +1,10 @@
 :root {
-    --alerte-radius: 5px;
-    --alerte-padding: 10px;
+    --alert-radius: 5px;
+    --alert-padding: 10px;
     --success-bg-color: #c2faa8;
     --success-font-color: var(--primary-color);
-    --errors-bg-color: rgb(240, 153, 153);
-    --errors-font-color: red;
+    --errors-bg-color: #F09999;
+    --errors-font-color: #FD0000;
 }
 
 .form-course-admin {

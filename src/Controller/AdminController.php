@@ -4,32 +4,32 @@ namespace App\Controller;
 
 class AdminController extends AbstractController
 {
-    public function course(string $success = null): string
+    public function course(): string
     {
         $errors = [];
         $formData = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $formData = array_map('trim', $_POST);
             $errors = $this->validateFormulary($formData);
-            $formData['duration'] = $this->intValue($formData['duration']);
+            $formData['duration'] = intval($formData['duration'], 10);
             if ($formData['duration'] === 0) {
                 $formData['duration'] = '';
             }
-            $formData['capacity'] = $this->intValue($formData['capacity']);
+            $formData['capacity'] = intval($formData['capacity'], 10);
             if ($formData['capacity'] === 0) {
                 $formData['capacity'] = '';
             }
             if (empty($errors)) {
-                header('location: /Admin/course/success');
+                return $this->twig->render('Admin/course.html.twig', [
+                    'formulary' => $formData,
+                    'success' => 'Cours enregistré avec succès!',
+                ]);
             }
         }
-        if ($success !== null) {
-            $success = 'Cours enregistré avec succès!';
-        }
+
         return $this->twig->render('Admin/course.html.twig', [
-            'errors' => $errors,
             'formulary' => $formData,
-            'success' => $success,
+            'errors' => $errors,
         ]);
     }
 
@@ -41,7 +41,7 @@ class AdminController extends AbstractController
      */
     private function validateFormulary(array $formData): array
     {
-        define('INPUTS', [
+        define('INPUTS_VALIDATIONS', [
             'name' => 255,
             'day' => 8,
             'time' => '',
@@ -53,8 +53,8 @@ class AdminController extends AbstractController
         $errors = [];
 
         foreach (array_keys($formData) as $inputName) {
-            if (!array_key_exists($inputName, INPUTS)) {
-                $errors[] = 'Le champs ' . $inputName . ' n\'existe pas';
+            if (!array_key_exists($inputName, INPUTS_VALIDATIONS)) {
+                $errors[] = 'Le champs ' . $inputName . ' n\'existe pas.';
             }
         }
 
@@ -64,17 +64,17 @@ class AdminController extends AbstractController
             return array_merge($errors, $testFieldsEmpty);
         }
 
-        if (strlen($formData['name']) > INPUTS['name']) {
-            $errors[] = 'Le nom du cours ne doit pas dépasser ' . INPUTS['name'] . ' charactères !';
+        if (strlen($formData['name']) > INPUTS_VALIDATIONS['name']) {
+            $errors[] = 'Le nom du cours ne doit pas dépasser ' . INPUTS_VALIDATIONS['name'] . ' charactères.';
         }
 
-        if (strlen($formData['day']) > INPUTS['day']) {
-            $errors[] = 'Le jours ne doit pas dépasser ' . INPUTS['day'] . ' charactères !';
+        if (strlen($formData['day']) > INPUTS_VALIDATIONS['day']) {
+            $errors[] = 'Le jours ne doit pas dépasser ' . INPUTS_VALIDATIONS['day'] . ' charactères.';
         }
 
 
-        if ($formData['capacity'] > INPUTS['capacity']) {
-            $errors[] = 'La capacité ne doit pas dépasser ' . INPUTS['capacity'] . ' personnes !';
+        if ($formData['capacity'] > INPUTS_VALIDATIONS['capacity']) {
+            $errors[] = 'La capacité ne doit pas dépasser ' . INPUTS_VALIDATIONS['capacity'] . ' personnes.';
         }
 
         return $errors;
@@ -91,40 +91,29 @@ class AdminController extends AbstractController
         $errors = [];
 
         if (empty($formData['name'])) {
-            $errors[] = 'Le nom du cours ne doit pas être vide !';
+            $errors[] = 'Le nom du cours ne doit pas être vide.';
         }
 
         if (empty($formData['day'])) {
-            $errors[] = 'Le jour doit être définie !';
+            $errors[] = 'Le jour doit être défini.';
         }
 
         if (empty($formData['time'])) {
-            $errors[] = 'L\'heure doit être définie !';
+            $errors[] = 'L\'heure doit être défini.';
         }
 
         if (empty($formData['duration'])) {
-            $errors[] = 'La durée doit être définie !';
+            $errors[] = 'La durée doit être définie.';
         }
 
         if (empty($formData['teacher'])) {
-            $errors[] = 'Le professeur doit être définie !';
+            $errors[] = 'Le professeur doit être défini.';
         }
 
         if (empty($formData['capacity'])) {
-            $errors[] = 'Le nombre d\'élèves doit être définie !';
+            $errors[] = 'Le nombre d\'élèves doit être défini.';
         }
 
         return $errors;
-    }
-
-    /**
-     * change fields string into int if characters is present.
-     *
-     * @param string $value
-     * @return integer
-     */
-    private function intValue(string $value): int
-    {
-        return intval($value, 10);
     }
 }
