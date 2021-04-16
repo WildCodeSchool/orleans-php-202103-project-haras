@@ -21,7 +21,7 @@ class AdminController extends AbstractController
             }
             if (empty($errors)) {
                 return $this->twig->render('Admin/course.html.twig', [
-                    'formulary' => $formData,
+                    'formulary' => [],
                     'success' => 'Cours enregistré avec succès!',
                 ]);
             }
