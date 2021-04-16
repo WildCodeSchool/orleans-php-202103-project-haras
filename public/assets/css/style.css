@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import 'navbar.css';
+
+
 :root {
     --primary-color: #499328;
     --secondary-color: #E5A500;
