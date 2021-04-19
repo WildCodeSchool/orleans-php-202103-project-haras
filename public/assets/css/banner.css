@@ -15,7 +15,7 @@
     object-position: center;
 }
 
-.banner h1{
+.banner h1 {
     --top-title-banner: 40px;
     z-index: 1;
     margin-top: var(--top-title-banner);
