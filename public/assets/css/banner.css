@@ -16,7 +16,8 @@
 }
 
 .banner h1{
-    --top-title-banner: 30px;
+    --top-title-banner: 40px;
     z-index: 1;
     margin-top: var(--top-title-banner);
+    text-shadow: 1px 1px 1px black;
 }
