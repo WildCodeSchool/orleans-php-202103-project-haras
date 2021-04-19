@@ -1,0 +1,22 @@
+.banner {
+    --heigt-banner: 150px;
+    display: flex;
+    height: var(--heigt-banner);
+    position: relative;
+    justify-content: center;
+}
+
+.img-banner {
+    position: absolute;
+    z-index: 0;
+    width: var(--full-relative);
+    height: var(--full-relative);
+    object-fit: cover;
+    object-position: center;
+}
+
+.banner h1{
+    --top-title-banner: 30px;
+    z-index: 1;
+    margin-top: var(--top-title-banner);
+}
