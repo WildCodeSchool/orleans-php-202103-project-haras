@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @import 'navbar.css';
 @import 'footer.css';
+@import 'banner.css';
 
 :root {
     --primary-color: #499328;
