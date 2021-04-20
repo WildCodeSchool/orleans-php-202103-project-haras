@@ -1,0 +1,24 @@
+.grey-bloc-section {
+    --padding: 2em;
+    display: flex;
+    justify-content: flex-end;
+    padding: var(--padding); 
+    background-color: var(--grey);
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: var(--text-font);
+}
+
+.grey-bloc-title {
+    --margin-top: 0.8em;
+    --font-size: 1.2em;
+    margin-top: var(--margin-top);
+    font-size: var(--font-size);
+    font-weight: bold;
+    text-align: center;
+}
+
+.grey-bloc-text {
+    display: flex;
+    flex-wrap: wrap;
+}
