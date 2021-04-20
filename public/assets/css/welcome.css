@@ -80,6 +80,7 @@
     left: var(--init);
     min-width: var(--max);
     min-height: var(--max);
+    
 }
 
 .list-group-item{
