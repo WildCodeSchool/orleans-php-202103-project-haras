@@ -1,0 +1,14 @@
+<div class="white-bloc-section col-xl-5 offset-xl-2 col-sm-10 offset-sm-1">
+    <div class="white-bloc-title-text">
+        <h2 class="white-bloc-title">
+            {% block title %}
+            {% endblock %}
+        </h2>
+        <p class="white-bloc-text">
+            {% block text %}
+            {% endblock %}
+        </p>
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
