@@ -33,7 +33,7 @@
     --width: 10em;
     margin-bottom: var(--margin);
     margin-top: var(--margin);
-    border-radius: 10em;
+    border-radius: var(--width);
     background-color: var(--secondary-color);
     height: var(--margin);
     width: var(--width);
