@@ -1,41 +1,10 @@
-:root {
-    --alert-radius: 5px;
-    --alert-padding: 10px;
-    --success-bg-color: #c2faa8;
-    --success-font-color: var(--primary-color);
-    --errors-bg-color: #F09999;
-    --errors-font-color: #FD0000;
-}
-
 .form-course-admin {
     --formulary-center: 5% 20%;
     padding: var(--formulary-center);
 }
 
-.form-course-admin .errors {
+.form-course-admin ul {
     list-style: none;
-    background-color: var(--errors-bg-color);
-    color: var(--errors-font-color);
-    border-radius: var(--alert-radius);
-    padding: var(--alert-padding);
-}
-
-.form-course-admin .success {
-    list-style: none;
-    background-color: var(--success-bg-color);
-    color: var(--success-font-color);
-    border-radius: var(--alert-radius);
-    padding: var(--alert-padding);
-}
-
-.form-course-admin form {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-course-admin .form-group {
-    --spacing-fields: 20px;
-    margin-bottom: var(--spacing-fields);
 }
 
 .form-course-admin .btn-formulary {
@@ -44,7 +13,5 @@
 }
 
 .form-course-admin .btn-formulary:hover {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
     color: var(--secondary-color);
 }
