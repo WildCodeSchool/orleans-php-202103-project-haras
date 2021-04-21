@@ -11,18 +11,9 @@ class AdminController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $formData = array_map('trim', $_POST);
             $errors = $this->validateFormulary($formData);
-            $formData['duration'] = intval($formData['duration'], 10);
-            if ($formData['duration'] === 0) {
-                $formData['duration'] = '';
-            }
-            $formData['capacity'] = intval($formData['capacity'], 10);
-            if ($formData['capacity'] === 0) {
-                $formData['capacity'] = '';
-            }
             if (empty($errors)) {
                 return $this->twig->render('Admin/course.html.twig', [
-                    'formulary' => [],
-                    'success' => 'Cours enregistré avec succès!',
+                    'success' => 'Cours enregistré avec succès',
                 ]);
             }
         }
@@ -78,7 +69,7 @@ class AdminController extends AbstractController
 
 
         if ($formData['capacity'] > INPUTS_VALIDATIONS['capacity']) {
-            $errors[] = 'La capacité ne doit pas dépasser ' . INPUTS_VALIDATIONS['capacity'] . ' personnes.';
+            $errors[] = 'La nombre d\'élèves ne doit pas dépasser ' . INPUTS_VALIDATIONS['capacity'] . ' personnes.';
         }
 
         return $errors;
