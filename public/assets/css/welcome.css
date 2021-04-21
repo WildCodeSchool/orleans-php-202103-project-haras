@@ -1,7 +1,7 @@
-
 .load{
     animation: slide 2s;
 }
+
 .slider{
     --init: 0;
     --max: 100%;
@@ -16,12 +16,14 @@
     background-position: center;
     animation: slide 30s infinite;
 }
+
 .content{
     color: var(--light);
     width: var(--max);
     height: var(--height);
     background-color: rgba(0, 0, 0, 0.5);
 }
+
 .principal{
     --letter-spacing: 5px;
     --left: 50%;
@@ -34,11 +36,13 @@
     position: absolute;
     text-align: center;
 }
+
 .principal h1{
     --margin-bottom: 20px;
     font-size: var(--font-size-welcome);
     margin-bottom: var(--margin-bottom);
 }
+
 @keyframes slide{
     0%{
         background-image: url('/assets/images/image1.webp');
@@ -73,14 +77,13 @@
 }
 
 /* Position of card */
-.card {
+.card{
     --background-color: #11ffee00;
     background-color: var(--background-color);
     top: var(--init);
     left: var(--init);
     min-width: var(--max);
     min-height: var(--max);
-    
 }
 
 .list-group-item{
@@ -95,8 +98,9 @@
         background-size: cover;
     }
 }
+
 @media screen and (max-width: 400px){
-  .pincipal, h1, p{
+    .pincipal, h1, p{
         overflow-wrap: anywhere;
         font-size: calc(var(--font-size-welcome) - 58px);
     }
