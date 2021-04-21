@@ -1,0 +1,46 @@
+.stage-grey-block-section {
+    --padding: 2em;
+    display: flex;
+    justify-content: flex-end;
+    padding: var(--padding); 
+    background-color: var(--grey);
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: var(--text-font);
+}
+
+.stage-grey-block-title {
+    --margin-top: 0.8em;
+    --font-size: 1.2em;
+    margin-top: var(--margin-top);
+    font-size: var(--font-size);
+    font-weight: bold;
+    text-align: center;
+}
+
+.stage-grey-block-text {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.btn-insc {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-inscription {
+    --margin: 3em;
+    --width: 10em;
+    margin-bottom: var(--margin);
+    margin-top: var(--margin);
+    border-radius: 10em;
+    background-color: var(--secondary-color);
+    height: var(--margin);
+    width: var(--width);
+    color: var(--dark);
+    border: none;
+}
+
+.btn-inscription:hover {
+    text-decoration: underline;
+}
