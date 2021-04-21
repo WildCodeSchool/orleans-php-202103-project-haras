@@ -9,7 +9,7 @@
     font-family: var(--text-font);
 }
 
-.stage-grey-block-title {
+.grey-block-title {
     --margin-top: 0.8em;
     --font-size: 1.2em;
     margin-top: var(--margin-top);
@@ -18,7 +18,7 @@
     text-align: center;
 }
 
-.stage-grey-block-text {
+.grey-block-text {
     display: flex;
     flex-wrap: wrap;
 }
