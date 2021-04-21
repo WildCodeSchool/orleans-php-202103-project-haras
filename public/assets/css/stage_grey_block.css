@@ -23,12 +23,12 @@
     flex-wrap: wrap;
 }
 
-.button-insc {
+.button-inscription {
     display: flex;
     justify-content: center;
 }
 
-.button-inscription {
+.inscription {
     --margin: 3em;
     --width: 10em;
     margin-bottom: var(--margin);
