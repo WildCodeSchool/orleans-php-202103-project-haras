@@ -1,4 +1,8 @@
+element {
+    --imageSize: 600px;
+}
+
 .carousel-inner {
-    height: 600px;
+    height: var(--imageSize);
     position: absolute;
 }
