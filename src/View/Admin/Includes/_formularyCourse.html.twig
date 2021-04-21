@@ -1,0 +1,53 @@
+<div class="form-course-admin">
+    {% if errors %}
+        <ul class="alert alert-danger">
+            {% for error in errors %}
+                <li>{{error}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% if success %}
+        <p class="alert alert-success">{{success}}</p>
+    {% endif %}
+    <form action="" method="POST" class="d-flex flex-column">
+        <div class="form-group mb-3">
+            <label for="name">Nom du cours</label>
+            <input class="form-control" type="text" name="name" id="name" placeholder="Baby Poney" required value="{{formulary.name}}">
+        </div>
+        <div class="form-group mb-3">
+            <label for="day">Jour du cours</label>
+            <select class="form-control" name="day" id="day">
+                <option value="">Selectionner le jour de la semaine</option>
+                <option value="Lundi" {% if formulary.day == "Lundi" %} selecselected="selected" {% endif %}>Lundi</option>
+                <option value="Mardi" {% if formulary.day == "Mardi" %} selected="selected" {% endif %}>Mardi</option>
+                <option value="Mercredi" {% if formulary.day == "Mercredi" %} selected="selected" {% endif %}>Mercredi</option>
+                <option value="Jeudi" {% if formulary.day == "Jeudi" %} selected="selected" {% endif %}>Jeudi</option>
+                <option value="Vendredi" {% if formulary.day == "Vendredi" %} selected="selected" {% endif %}>Vendredi</option>
+                <option value="Samedi" {% if formulary.day == "Samedi" %} selected="selected" {% endif %}>Samedi</option>
+                <option value="Dimanche" {% if formulary.day == "Dimanche" %} selected="selected" {% endif %}>Dimanche</option>
+            </select>
+        </div>
+        <div class="form-group mb-3">
+            <label for="time">Heure de début</label>
+            <input class="form-control" type="time" name="time" id="time" required value="{{formulary.time}}">
+        </div>
+        <div class="form-group mb-3">
+            <label for="duration">Durée (minutes)</label>
+            <input class="form-control" type="text" name="duration" id="duration" required value="{{formulary.duration}}" placeholder="maximum 120 minutes">
+        </div>
+        <div class="form-group mb-3">
+            <label for="teacher">Professeurs</label>
+            <select class="form-control" name="teacher" id="teachers" required>
+                <option value="">Quel professeur peut dispenser le cours</option>
+                <option value="prof1" {% if formulary.teacher == "prof1" %} selected="selected" {% endif %}>prof1</option>
+                <option value="prof2" {% if formulary.teacher == "prof2" %} selected="selected" {% endif %}>prof2</option>
+                <option value="prof3" {% if formulary.teacher == "prof3" %} selected="selected" {% endif %}>prof3</option>
+            </select>
+        </div>
+        <div class="form-group mb-3">
+            <label for="capacity">Nombre d'élèves</label>
+            <input class="form-control" type="text" name="capacity" id="capacity" required value="{{formulary.capacity}}" placeholder="maximum 20 pesonnes">
+        </div>
+        <button class="btn btn-primary btn-formulary" type="submit">Enregistrer</button>
+    </form>
+</div>

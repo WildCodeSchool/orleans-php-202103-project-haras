@@ -1,9 +1,16 @@
 {% extends 'layout.html.twig' %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="/assets/css/admin.css">
+{% endblock %}
 {% block navbar %}
 	<header>
 		{% include "Admin/Includes/_navbar.html.twig" %}
 	</header>
 {% endblock %}
 {% block content %}
-	<main></main>
+	<main>
+		<h1>Administration: Cours</h1>
+		{% include "Admin/Includes/_formularyCourse.html.twig" %}
+	</main>
 {% endblock %}
