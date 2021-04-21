@@ -1,4 +1,4 @@
-.stage-grey-block-section {
+.grey-block-content {
     --padding: 2em;
     display: flex;
     justify-content: flex-end;
@@ -23,12 +23,12 @@
     flex-wrap: wrap;
 }
 
-.btn-insc {
+.button-insc {
     display: flex;
     justify-content: center;
 }
 
-.btn-inscription {
+.button-inscription {
     --margin: 3em;
     --width: 10em;
     margin-bottom: var(--margin);
@@ -41,6 +41,6 @@
     border: none;
 }
 
-.btn-inscription:hover {
+.button-inscription:hover {
     text-decoration: underline;
 }
