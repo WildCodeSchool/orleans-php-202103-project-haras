@@ -3,5 +3,8 @@
     <link rel="stylesheet" href="/assets/css/haras.css">
 {% endblock %}
 {% block content %}
+    {% include 'Includes/_banner.html.twig' with 
+    {image: 'collector.webp', alt: 'desesperate horse', title: 'ACCUEIL'}
+    %}
     {% include "User/Includes/_haras_googlemap.html.twig" %}
 {% endblock %}
