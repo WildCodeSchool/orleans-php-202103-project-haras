@@ -21,7 +21,7 @@
     justify-content: space-around;
 }
 
-.nav .btn-nav {
+.nav .button-navbar {
     --width-btn: 90px;
     --height-btn: 35px;
     --radius-btn: 100px;
