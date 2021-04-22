@@ -1,11 +1,12 @@
-body{
+body {
     overflow-y: hidden;
 }
-.load{
+
+.load {
     animation: slide 2s;
 }
 
-.slider{
+.slider {
     --init: 0;
     --max: 100%;
     --height: 100vh;
@@ -20,67 +21,68 @@ body{
     animation: slide 30s infinite;
 }
 
-.content{
+.content {
     color: var(--light);
     width: var(--max);
     height: var(--height);
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.principal{
+.principal {
     --letter-spacing: 5px;
     --left: 50%;
-    --top: 50%;
+    --top: 40%;
     font-family: var(--title-font);
     letter-spacing: var(--letter-spacing);
     left: var(--left);
     top: var(--top);
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     position: absolute;
     text-align: center;
 }
 
-.principal h1{
+.principal h1 {
     --margin-bottom: 20px;
     font-size: var(--font-size-welcome);
     margin-bottom: var(--margin-bottom);
 }
 
-@keyframes slide{
-    0%{
+@keyframes slide {
+    0% {
         background-image: url('/assets/images/image1.webp');
     }
-    20%{
+    20% {
         background-image: url('/assets/images/image1.webp');
     }
-    20.01%{
+    20.01% {
         background-image: url('/assets/images/image2.jpg');
     }
-    40%{
+    40% {
         background-image: url('/assets/images/image2.jpg');
     }
-    40.01%{
+    40.01% {
         background-image: url('/assets/images/image3.jpg');
     }
-    60%{
+    60% {
         background-image: url('/assets/images/image3.jpg');
     }
-    60.01%{
+    60.01% {
         background-image: url('/assets/images/image4.jpg');
     }
-    80%{
+    80% {
         background-image: url('/assets/images/image4.jpg');
     }
-    80.01%{
+    80.01% {
         background-image: url('/assets/images/image5.jpg');
     }
-    100%{
+    100% {
         background-image: url('/assets/images/image5.jpg');
     }
 }
 
 /* Position of card */
-.card{
+
+.card {
     --background-color: #11ffee00;
     background-color: var(--background-color);
     top: var(--init);
@@ -89,21 +91,21 @@ body{
     min-height: var(--max);
 }
 
-.list-group-item{
-    background-color: var(--background-color); 
+.list-group-item {
+    background-color: var(--background-color);
     color: var(--light);
 }
 
 /*Mobile version*/
 
-@media screen and (max-width: 670px){
-    .slider{
+@media screen and (max-width: 670px) {
+    .slider {
         background-size: cover;
     }
 }
 
-@media screen and (max-width: 400px){
-    .pincipal, h1, p{
+@media screen and (max-width: 400px) {
+    .pincipal, h1, p {
         overflow-wrap: anywhere;
         font-size: calc(var(--font-size-welcome) - 58px);
     }
