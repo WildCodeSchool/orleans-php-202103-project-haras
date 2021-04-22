@@ -4,5 +4,7 @@
 {% endblock %}
 {% block content %}
     {% include 'Includes/_banner.html.twig' with {image: 'collector.webp', alt: 'desesperate horse', title: 'ACCUEIL'} %}
+    {% include 'User/Includes/_haras_grey_block.html.twig' %}
+    {% include 'User/Includes/_haras_white_block.html.twig' %}
     {% include 'User/Includes/_haras_googlemap.html.twig' %}
 {% endblock %}

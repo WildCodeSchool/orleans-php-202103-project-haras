@@ -1,0 +1,46 @@
+.grey-block {
+    --padding: 2em;
+    display: flex;
+    justify-content: flex-end;
+    padding: var(--padding); 
+    background-color: var(--grey);
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: var(--text-font);
+}
+
+.grey-block-title {
+    --margin-top: 0.8em;
+    --font-size: 1.2em;
+    margin-top: var(--margin-top);
+    font-size: var(--font-size);
+    font-weight: bold;
+    text-align: center;
+}
+
+.grey-block-text {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.button-inscription {
+    display: flex;
+    justify-content: center;
+}
+
+.inscription {
+    --margin: 3em;
+    --width: 10em;
+    margin-bottom: var(--margin);
+    margin-top: var(--margin);
+    border-radius: var(--width);
+    background-color: var(--secondary-color);
+    height: var(--margin);
+    width: var(--width);
+    color: var(--dark);
+    border: none;
+}
+
+.button-inscription:hover {
+    text-decoration: underline;
+}
