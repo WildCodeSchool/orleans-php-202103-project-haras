@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="/assets/css/stage.css">
 {% endblock %}
 {% block content %}
+    {% include 'Includes/_banner.html.twig' with {image: 'collector.webp', alt: 'desesperate horse', title: 'STAGES'} %}
     {% include 'User/Includes/_stage_white_block.html.twig' %}
     {% include 'User/Includes/_stage_grey_block.html.twig' %}
 {% endblock %}
