@@ -1,3 +1,6 @@
+body{
+    overflow-y: hidden;
+}
 .load{
     animation: slide 2s;
 }
