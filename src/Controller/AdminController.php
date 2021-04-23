@@ -55,15 +55,15 @@ class AdminController extends AbstractController
         }
 
         if (strlen($formData['name']) > self::INPUTS_VALIDATIONS['name']) {
-            $errors[] = 'Le nom du cours ne doit pas dépasser ' . self::INPUTS_VALIDATIONS['name'] . ' charactères.';
+            $errors[] = 'Le nom du cours ne peut dépasser ' . self::INPUTS_VALIDATIONS['name'] . ' charactères.';
         }
 
         if (strlen($formData['day']) > self::INPUTS_VALIDATIONS['day']) {
-            $errors[] = 'Le jours ne doit pas dépasser ' . self::INPUTS_VALIDATIONS['day'] . ' charactères.';
+            $errors[] = 'Le jours ne peut dépasser ' . self::INPUTS_VALIDATIONS['day'] . ' charactères.';
         }
 
         if ($formData['duration'] > self::INPUTS_VALIDATIONS['duration']) {
-            $errors[] = 'La durée ne doit pas dépasser ' . self::INPUTS_VALIDATIONS['duration'] . ' minutes';
+            $errors[] = 'La durée ne peut dépasser ' . self::INPUTS_VALIDATIONS['duration'] . ' minutes';
         }
 
 
