@@ -1,17 +1,12 @@
-.form-course-admin {
-    --formulary-center: 5% 20%;
-    padding: var(--formulary-center);
-}
-
-.form-course-admin ul {
+.formulary-course-admin ul {
     list-style: none;
 }
 
-.form-course-admin .btn-formulary {
+.formulary-course-admin .button-formulary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
 }
 
-.form-course-admin .btn-formulary:hover {
+.formulary-course-admin .button-formulary:hover {
     color: var(--secondary-color);
 }

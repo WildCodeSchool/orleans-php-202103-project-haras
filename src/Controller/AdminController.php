@@ -100,10 +100,6 @@ class AdminController extends AbstractController
             $errors[] = 'La durée doit être définie.';
         }
 
-        if (empty($formData['teacher'])) {
-            $errors[] = 'Le professeur doit être défini.';
-        }
-
         if (empty($formData['capacity'])) {
             $errors[] = 'Le nombre d\'élèves doit être défini.';
         }
