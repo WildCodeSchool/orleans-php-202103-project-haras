@@ -1,8 +1,12 @@
 {% extends 'layout.html.twig' %}
 {% block stylesheet %}
-    <link rel="stylesheet" href="/assets/css/course.css">
+    <link rel='stylesheet' href='/assets/css/course.css'>
 {% endblock %}
 {% block content %}
-    {% include "User/Includes/_course_white_block.html.twig" %}
-    {% include "User/Includes/_course_tab.html.twig" %}
+    {% include 'Includes/_banner.html.twig' with {image: 'collector.webp', alt: 'desesperate horse', title: 'COURS'} %}
+    {% include 'User/Includes/_course_tab.html.twig' %}
+    {% include 'User/Includes/_carousel.html.twig' %}
+    {% include 'User/Includes/_course_white_block.html.twig' %}
 {% endblock %}
+
+

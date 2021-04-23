@@ -1,0 +1,6 @@
+.contact-googlemap {
+    --padding: 0.1em;
+    display: flex;
+    justify-content: center;
+    padding: var(--padding);
+}
