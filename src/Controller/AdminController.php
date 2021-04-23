@@ -4,6 +4,15 @@ namespace App\Controller;
 
 class AdminController extends AbstractController
 {
+    private const INPUTS_VALIDATIONS = [
+        'name' => 255,
+        'day' => 8,
+        'time' => '',
+        'duration' => 120,
+        'teacher' => '',
+        'capacity' => 20,
+    ];
+
     public function course(): string
     {
         $errors = [];
@@ -12,9 +21,7 @@ class AdminController extends AbstractController
             $formData = array_map('trim', $_POST);
             $errors = $this->validateFormulary($formData);
             if (empty($errors)) {
-                return $this->twig->render('Admin/course.html.twig', [
-                    'success' => 'Cours enregistré avec succès',
-                ]);
+                header('location: /admin/course');
             }
         }
 
@@ -32,19 +39,11 @@ class AdminController extends AbstractController
      */
     private function validateFormulary(array $formData): array
     {
-        define('INPUTS_VALIDATIONS', [
-            'name' => 255,
-            'day' => 8,
-            'time' => '',
-            'duration' => 120,
-            'teacher' => '',
-            'capacity' => 20,
-        ]);
 
         $errors = [];
 
         foreach (array_keys($formData) as $inputName) {
-            if (!array_key_exists($inputName, INPUTS_VALIDATIONS)) {
+            if (!array_key_exists($inputName, self::INPUTS_VALIDATIONS)) {
                 $errors[] = 'Le champs ' . $inputName . ' n\'existe pas.';
             }
         }
@@ -55,21 +54,21 @@ class AdminController extends AbstractController
             return array_merge($errors, $testFieldsEmpty);
         }
 
-        if (strlen($formData['name']) > INPUTS_VALIDATIONS['name']) {
-            $errors[] = 'Le nom du cours ne doit pas dépasser ' . INPUTS_VALIDATIONS['name'] . ' charactères.';
+        if (strlen($formData['name']) > self::INPUTS_VALIDATIONS['name']) {
+            $errors[] = 'Le nom du cours ne doit pas dépasser ' . self::INPUTS_VALIDATIONS['name'] . ' charactères.';
         }
 
-        if (strlen($formData['day']) > INPUTS_VALIDATIONS['day']) {
-            $errors[] = 'Le jours ne doit pas dépasser ' . INPUTS_VALIDATIONS['day'] . ' charactères.';
+        if (strlen($formData['day']) > self::INPUTS_VALIDATIONS['day']) {
+            $errors[] = 'Le jours ne doit pas dépasser ' . self::INPUTS_VALIDATIONS['day'] . ' charactères.';
         }
 
-        if ($formData['duration'] > INPUTS_VALIDATIONS['duration']) {
-            $errors[] = 'La durée ne doit pas dépasser ' . INPUTS_VALIDATIONS['duration'] . ' minutes';
+        if ($formData['duration'] > self::INPUTS_VALIDATIONS['duration']) {
+            $errors[] = 'La durée ne doit pas dépasser ' . self::INPUTS_VALIDATIONS['duration'] . ' minutes';
         }
 
 
-        if ($formData['capacity'] > INPUTS_VALIDATIONS['capacity']) {
-            $errors[] = 'La nombre d\'élèves ne doit pas dépasser ' . INPUTS_VALIDATIONS['capacity'] . ' personnes.';
+        if ($formData['capacity'] > self::INPUTS_VALIDATIONS['capacity']) {
+            $errors[] = 'La nombre d\'élèves ne peut dépasser ' . self::INPUTS_VALIDATIONS['capacity'] . ' personnes.';
         }
 
         return $errors;
