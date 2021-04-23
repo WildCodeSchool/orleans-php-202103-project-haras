@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-class AdminController extends AbstractController
+class AdminCourseController extends AbstractController
 {
     private const INPUTS_VALIDATIONS = [
         'name' => 255,
