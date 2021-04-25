@@ -66,7 +66,6 @@ class AdminCourseController extends AbstractController
             $errors[] = 'La durée ne peut dépasser ' . self::INPUTS_VALIDATIONS['duration'] . ' minutes';
         }
 
-
         if ($formData['capacity'] > self::INPUTS_VALIDATIONS['capacity']) {
             $errors[] = 'La nombre d\'élèves ne peut dépasser ' . self::INPUTS_VALIDATIONS['capacity'] . ' personnes.';
         }
