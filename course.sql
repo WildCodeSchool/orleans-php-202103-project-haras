@@ -3,7 +3,7 @@ CREATE TABLE course (
   `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `day` VARCHAR(8) NOT NULL,
-  `time` VARCHAR(5) NOT NULL,
+  `time` TIME NOT NULL,
   `duration` INT NOT NULL,
   `capacity` INT NOT NULL
 );
