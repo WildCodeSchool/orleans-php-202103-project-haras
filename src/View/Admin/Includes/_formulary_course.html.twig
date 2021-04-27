@@ -2,7 +2,7 @@
     {% if errors %}
         <ul class="alert alert-danger">
             {% for error in errors %}
-                <li>{{error}}</li>
+                <li>{{ error }}</li>
             {% endfor %}
         </ul>
     {% endif %}
@@ -16,14 +16,14 @@
                 <span class="text-danger">*</span>
                 Nom du cours
             </label>
-            <input class="form-control" type="text" name="name" id="name" placeholder="Baby Poney" required value="{{formulary.name}}" aria-required=" true">
+            <input class="form-control" type="text" name="name" id="name" placeholder="Baby Poney" required value="{{ formulary.name }}" aria-required=" true">
         </div>
         <div class="form-group mb-3">
             <label for="day">
                 <span class="text-danger">*</span>
                 Jour du cours
             </label>
-            <select class="form-control" name="day" id="day" aria-required="true">
+            <select class="form-control" name="day" id="day" aria-required="true" required>
                 <option value="">Selectionner le jour de la semaine</option>
                 <option value="Lundi" {% if formulary.day == "Lundi" %} selected="selected" {% endif %}>Lundi</option>
                 <option value="Mardi" {% if formulary.day == "Mardi" %} selected="selected" {% endif %}>Mardi</option>
@@ -39,21 +39,21 @@
                 <span class="text-danger">*</span>
                 Heure de début
             </label>
-            <input class="form-control" type="time" name="time" id="time" required value="{{formulary.time}}" aria-required="true">
+            <input class="form-control" type="time" name="time" id="time" required value="{{ formulary.time }}" aria-required="true">
         </div>
         <div class="form-group mb-3">
             <label for="duration">
                 <span class="text-danger">*</span>
                 Durée (minutes)
             </label>
-            <input class="form-control" type="text" name="duration" id="duration" required value="{{formulary.duration}}" placeholder="maximum 120 minutes" aria-required="true">
+            <input class="form-control" type="text" name="duration" id="duration" required value="{{ formulary.duration }}" placeholder="maximum 120 minutes" aria-required="true">
         </div>
         <div class="form-group mb-3">
             <label for="capacity">
                 <span class="text-danger">*</span>
                 Nombre d'élèves
             </label>
-            <input class="form-control" type="text" name="capacity" id="capacity" required value="{{formulary.capacity}}" placeholder="maximum 20 pesonnes" aria-required="true">
+            <input class="form-control" type="text" name="capacity" id="capacity" required value="{{ formulary.capacity }}" placeholder="maximum 20 pesonnes" aria-required="true">
         </div>
         <button class="btn btn-primary button-formulary" type="submit">Enregistrer</button>
     </form>

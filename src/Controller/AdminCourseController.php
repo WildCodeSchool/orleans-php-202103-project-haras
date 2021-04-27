@@ -43,19 +43,19 @@ class AdminCourseController extends AbstractController
         $errors = [];
         $errors = array_merge($errors, $this->isEmpty($formData));
 
-        if (strlen($formData['name']) > self::INPUTS_VALIDATIONS['name']) {
+        if (!empty($formData['name']) && strlen($formData['name']) > self::INPUTS_VALIDATIONS['name']) {
             $errors[] = 'Le nom du cours ne peut dépasser ' . self::INPUTS_VALIDATIONS['name'] . ' charactères.';
         }
 
-        if (strlen($formData['day']) > self::INPUTS_VALIDATIONS['day']) {
+        if (!empty($formData['day']) && strlen($formData['day']) > self::INPUTS_VALIDATIONS['day']) {
             $errors[] = 'Le jours ne peut dépasser ' . self::INPUTS_VALIDATIONS['day'] . ' charactères.';
         }
 
-        if ($formData['duration'] > self::INPUTS_VALIDATIONS['duration']) {
+        if (!empty($formData['duration']) && $formData['duration'] > self::INPUTS_VALIDATIONS['duration']) {
             $errors[] = 'La durée ne peut dépasser ' . self::INPUTS_VALIDATIONS['duration'] . ' minutes';
         }
 
-        if ($formData['capacity'] > self::INPUTS_VALIDATIONS['capacity']) {
+        if (!empty($formData['capacity']) && $formData['capacity'] > self::INPUTS_VALIDATIONS['capacity']) {
             $errors[] = 'Le nombre d\'élèves ne peut dépasser ' . self::INPUTS_VALIDATIONS['capacity'] . ' personnes.';
         }
 
@@ -73,7 +73,7 @@ class AdminCourseController extends AbstractController
         $errors = [];
 
         if (empty($formData['name'])) {
-            $errors[] = 'Le nom du cours ne doit pas être vide.';
+            $errors[] = 'Le nom du cours doit être défini.';
         }
 
         if (empty($formData['day'])) {
@@ -81,7 +81,7 @@ class AdminCourseController extends AbstractController
         }
 
         if (empty($formData['time'])) {
-            $errors[] = 'L\'heure doit être défini.';
+            $errors[] = 'L\'heure doit être définie.';
         }
 
         if (empty($formData['duration'])) {
