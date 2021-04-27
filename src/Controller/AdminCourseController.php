@@ -39,7 +39,6 @@ class AdminCourseController extends AbstractController
      */
     private function validateFormulary(array $formData): array
     {
-
         $errors = [];
         $errors = array_merge($errors, $this->isEmpty($formData));
 
