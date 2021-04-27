@@ -21,7 +21,7 @@ class AdminCourseController extends AbstractController
             $formData = array_map('trim', $_POST);
             $errors = $this->validateFormulary($formData);
             if (empty($errors)) {
-                header('location: /admin/course');
+                header('location: /adminCourse/course');
             }
         }
 
@@ -41,18 +41,7 @@ class AdminCourseController extends AbstractController
     {
 
         $errors = [];
-
-        foreach (array_keys($formData) as $inputName) {
-            if (!array_key_exists($inputName, self::INPUTS_VALIDATIONS)) {
-                $errors[] = 'Le champs ' . $inputName . ' n\'existe pas.';
-            }
-        }
-
-        $testFieldsEmpty = $this->isEmpty($formData);
-
-        if (!empty($testFieldsEmpty)) {
-            return array_merge($errors, $testFieldsEmpty);
-        }
+        $errors = array_merge($errors, $this->isEmpty($formData));
 
         if (strlen($formData['name']) > self::INPUTS_VALIDATIONS['name']) {
             $errors[] = 'Le nom du cours ne peut dépasser ' . self::INPUTS_VALIDATIONS['name'] . ' charactères.';
