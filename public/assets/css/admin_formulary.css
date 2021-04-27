@@ -1,0 +1,12 @@
+.formulary-course-admin ul {
+    list-style: none;
+}
+
+.formulary-course-admin .button-formulary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.formulary-course-admin .button-formulary:hover {
+    color: var(--secondary-color);
+}
