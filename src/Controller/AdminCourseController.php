@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Model\CourseManager;
+
 class AdminCourseController extends AbstractController
 {
     private const INPUTS_VALIDATIONS = [
@@ -21,6 +23,8 @@ class AdminCourseController extends AbstractController
             $formData = array_map('trim', $_POST);
             $errors = $this->validateFormulary($formData);
             if (empty($errors)) {
+                $courseManager = new CourseManager();
+                $courseManager->insert($formData);
                 header('location: /adminCourse/course');
             }
         }
