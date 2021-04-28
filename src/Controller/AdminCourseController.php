@@ -92,6 +92,21 @@ class AdminCourseController extends AbstractController
             $errors[] = 'Le nombre d\'élèves ne peut dépasser ' . self::INPUTS_VALIDATIONS['capacity'] . ' personnes.';
         }
 
+        $errors = array_merge($errors, $this->minimumAge($formData));
+
+        return $errors;
+    }
+
+    /**
+     * testing minimum age
+     *
+     * @param array $formData
+     * @return array
+     */
+    public function minimumAge(array $formData): array
+    {
+        $errors = [];
+
         if (!empty($formData['age']) && $formData['age'] < self::INPUTS_VALIDATIONS['age']) {
             $errors[] = 'L\'age minimum ne peut être inférieur à ' . self::INPUTS_VALIDATIONS['age'] . ' an.';
         }
