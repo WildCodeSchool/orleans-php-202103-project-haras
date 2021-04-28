@@ -25,13 +25,12 @@
             </label>
             <select class="form-control" name="day" id="day" aria-required="true" required>
                 <option value="">Selectionner le jour de la semaine</option>
-                <option value="Lundi" {% if formulary.day == "Lundi" %} selected="selected" {% endif %}>Lundi</option>
-                <option value="Mardi" {% if formulary.day == "Mardi" %} selected="selected" {% endif %}>Mardi</option>
-                <option value="Mercredi" {% if formulary.day == "Mercredi" %} selected="selected" {% endif %}>Mercredi</option>
-                <option value="Jeudi" {% if formulary.day == "Jeudi" %} selected="selected" {% endif %}>Jeudi</option>
-                <option value="Vendredi" {% if formulary.day == "Vendredi" %} selected="selected" {% endif %}>Vendredi</option>
-                <option value="Samedi" {% if formulary.day == "Samedi" %} selected="selected" {% endif %}>Samedi</option>
-                <option value="Dimanche" {% if formulary.day == "Dimanche" %} selected="selected" {% endif %}>Dimanche</option>
+                <option value="1" {% if formulary.day == "Lundi" %} selected="selected" {% endif %}>Lundi</option>
+                <option value="2" {% if formulary.day == "Mardi" %} selected="selected" {% endif %}>Mardi</option>
+                <option value="3" {% if formulary.day == "Mercredi" %} selected="selected" {% endif %}>Mercredi</option>
+                <option value="4" {% if formulary.day == "Jeudi" %} selected="selected" {% endif %}>Jeudi</option>
+                <option value="5" {% if formulary.day == "Vendredi" %} selected="selected" {% endif %}>Vendredi</option>
+                <option value="6" {% if formulary.day == "Samedi" %} selected="selected" {% endif %}>Samedi</option>
             </select>
         </div>
         <div class="form-group mb-3">
