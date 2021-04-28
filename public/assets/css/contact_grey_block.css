@@ -9,16 +9,18 @@
     font-family: var(--text-font);
 }
 
-.contact-grey-title {
-    --margin-top: 0.8em;
-    --font-size: 1.2em;
-    margin-top: var(--margin-top);
-    font-size: var(--font-size);
-    font-weight: bold;
+.button {
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    padding: 15px 32px;
     text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
 }
 
-.contact-grey-text {
-    display: flex;
-    flex-wrap: wrap;
+.button:hover {
+    color: var(--secondary-color);
 }
