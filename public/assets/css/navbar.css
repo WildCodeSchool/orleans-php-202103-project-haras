@@ -23,6 +23,7 @@
 .nav .navbar-nav {
     width: var(--full-relative);
     justify-content: space-around;
+    text-align: center;
 }
 
 .nav .button-navbar {
