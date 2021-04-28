@@ -15,15 +15,18 @@ class AdminCourseController extends AbstractController
         'capacity' => 20,
     ];
 
+    private const DAYS = [1 => 'Lundi', 2 => 'Mardi', 3 => 'Mercredi', 4 => 'Jeudi', 5 => 'Vendredi', 6 => 'Samedi'];
+
     public function course(): string
     {
+        $courseManager = new CourseManager();
+        $coursesByDay = $this->sortingByDay($courseManager->selectAll('time'));
         $errors = [];
         $formData = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $formData = array_map('trim', $_POST);
             $errors = $this->validateFormulary($formData);
             if (empty($errors)) {
-                $courseManager = new CourseManager();
                 $courseManager->insert($formData);
                 header('location: /adminCourse/course');
             }
@@ -32,6 +35,7 @@ class AdminCourseController extends AbstractController
         return $this->twig->render('Admin/course.html.twig', [
             'formulary' => $formData,
             'errors' => $errors,
+            'courses' => $coursesByDay,
         ]);
     }
 
@@ -96,5 +100,23 @@ class AdminCourseController extends AbstractController
         }
 
         return $errors;
+    }
+
+    /**
+     * Sorting courses by day.
+     *
+     * @param array $courses
+     * @return array
+     */
+    private function sortingByDay(array $courses): array
+    {
+        $coursesByDay = [];
+        foreach ($courses as $course) {
+            $course['dayString'] = self::DAYS[$course['day']];
+            $coursesByDay[$course['day']][] = $course;
+        }
+        ksort($coursesByDay);
+
+        return $coursesByDay;
     }
 }
