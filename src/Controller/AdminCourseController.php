@@ -13,6 +13,7 @@ class AdminCourseController extends AbstractController
         'duration' => 120,
         'teacher' => '',
         'capacity' => 20,
+        'age' => 1,
     ];
 
     private const DAYS = [1 => 'Lundi', 2 => 'Mardi', 3 => 'Mercredi', 4 => 'Jeudi', 5 => 'Vendredi', 6 => 'Samedi'];
@@ -91,6 +92,10 @@ class AdminCourseController extends AbstractController
             $errors[] = 'Le nombre d\'élèves ne peut dépasser ' . self::INPUTS_VALIDATIONS['capacity'] . ' personnes.';
         }
 
+        if (!empty($formData['age']) && $formData['age'] < self::INPUTS_VALIDATIONS['age']) {
+            $errors[] = 'L\'age minimum ne peut être inférieur à ' . self::INPUTS_VALIDATIONS['age'] . ' an.';
+        }
+
         return $errors;
     }
 
@@ -122,6 +127,10 @@ class AdminCourseController extends AbstractController
 
         if (empty($formData['capacity'])) {
             $errors[] = 'Le nombre d\'élèves doit être défini.';
+        }
+
+        if (empty($formData['age'])) {
+            $errors[] = 'L\'age doit être défini.';
         }
 
         return $errors;
