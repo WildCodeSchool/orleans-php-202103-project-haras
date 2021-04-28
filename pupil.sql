@@ -4,7 +4,7 @@ CREATE TABLE pupil (
     `lastname` VARCHAR(255) NOT NULL,
     `birthday` DATE NOT NULL,
     `experience` BOOLEAN NOT NULL,
-    `parent_id` INT NOT NULL,
+    `parent_id` INT NOT NULL
 );
 
 ALTER TABLE pupil 
