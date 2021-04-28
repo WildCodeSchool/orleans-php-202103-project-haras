@@ -36,6 +36,31 @@ class AdminCourseController extends AbstractController
             'formulary' => $formData,
             'errors' => $errors,
             'courses' => $coursesByDay,
+            'button_name' => 'Enregistrer',
+        ]);
+    }
+
+    public function edit(int $id): string
+    {
+        $courseManager = new CourseManager();
+        $coursesByDay = $this->sortingByDay($courseManager->selectAll('time'));
+        $errors = [];
+        $formData = $courseManager->selectOneById($id);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $formData = array_map('trim', $_POST);
+            $errors = $this->validateFormulary($formData);
+            if (empty($errors)) {
+                $formData['id'] = $id;
+                $courseManager->update($formData);
+                header('location: /adminCourse/course');
+            }
+        }
+
+        return $this->twig->render('Admin/course.html.twig', [
+            'formulary' => $formData,
+            'errors' => $errors,
+            'courses' => $coursesByDay,
+            'button_name' => 'Editer',
         ]);
     }
 
