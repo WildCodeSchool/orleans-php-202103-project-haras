@@ -39,12 +39,17 @@
     --width: 10em;
     margin-bottom: var(--margin);
     margin-top: var(--margin);
-    border-radius: 10em;
+    border-radius: var(--width);
     background-color: var(--secondary-color);
     height: var(--margin);
     width: var(--width);
     color: var(--dark);
     border: none;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
 }
 
 .btn-course {
@@ -67,6 +72,7 @@
 
 .btn-inscription:hover {
     text-decoration: underline;
+    color: var(--dark);
 }
 
 .btn-course:hover {
