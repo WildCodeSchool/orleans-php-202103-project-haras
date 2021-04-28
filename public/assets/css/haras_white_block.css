@@ -1,7 +1,7 @@
 .haras-white-block-section {
     --padding: 2em;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     padding: var(--padding); 
     background-color: var(--light);
     flex-direction: column;
@@ -21,4 +21,11 @@
 .white-block-text {
     display: flex;
     flex-wrap: wrap;
+}
+
+@media (min-width: 1000px) {
+    .haras-white-block-section {
+        --height: 100vh;
+        height: var(--height);
+    }
 }
