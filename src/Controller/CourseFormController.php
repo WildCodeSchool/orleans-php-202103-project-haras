@@ -70,7 +70,11 @@ class CourseFormController extends AbstractController
         }
 
         if (empty($course['course'])) {
-            $errors[] = 'Un cours doit être choisi';
+            $errors[] = 'Le choix du cours est requis';
+        }
+
+        if (empty($course['experience'])) {
+            $errors[] = 'Le choix de l\'experience est requis';
         }
 
         return $errors;
