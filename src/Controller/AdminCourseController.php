@@ -64,6 +64,15 @@ class AdminCourseController extends AbstractController
         ]);
     }
 
+    public function delete(int $id): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $courseManager = new CourseManager();
+            $courseManager->delete($id);
+            header('location: /adminCourse/course');
+        }
+    }
+
     /**
      * Test fields if exist, if not empty and test their constraints
      *
