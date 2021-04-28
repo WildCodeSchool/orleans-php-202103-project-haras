@@ -1,29 +1,29 @@
 {% block contact_grey_block %}
-<form class= "contact-grey-title" methode ="POST" novalidate>
-    <div class="grey-block col-xl-3 offset-xl-8 col-sm-10 offset-sm-1">
-        <div class="contact-grey-section">
-            <div class="mb-3">
-            <label class="form-label">Nom</label>
-            <input type="text" class="form-control" id="nom">
+    <form class="contact-grey-title" methode="POST" novalidate>
+        <div class="grey-block col-xl-3 offset-xl-8 col-sm-10 offset-sm-1">
+            <div class="contact-grey-section">
+                <div class="mb-3">
+                                    <label class="form-label">Nom</label>
+                    <input type="text" class="form-control" name="nom">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Prenom</label>
+                    <input type="text" class="form-control" name="prenom">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Telephone</label>
+                    <input type="text" class="form-control" name="telephone">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email">
+                </div>
+                <div class="mb-3">
+                        <label class="form-label">Message</label>
+                    <textarea class="form-control" name="textarea" rows="3"></textarea>
+                </div>
+                <button class="button">Envoyer</button>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Prenom</label>
-                <input type="text" class="form-control" id="prenom">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Telephone</label>
-                <input type="text" class="form-control" id="telephone">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Email</label>
-                <input type="email" class="form-control" id="email">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Message</label>
-                <textarea class="form-control" id="textarea" rows="3"></textarea>
-            </div>
-            <button class="button">Envoyer</button>
         </div>
-    </div>
-</form>
+    </form>
 {% endblock %}
