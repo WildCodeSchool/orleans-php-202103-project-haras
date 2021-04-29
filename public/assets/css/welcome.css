@@ -10,7 +10,7 @@ body {
     --init: 0;
     --max: 100%;
     --height: 100vh;
-    --font-size-welcome: 70px;
+    --font-size-welcome: 60px;
     margin: var(--init);
     padding: var(--init);
     width: var(--max);
@@ -32,6 +32,7 @@ body {
     --letter-spacing: 5px;
     --left: 50%;
     --top: 40%;
+    --shadow: 1px 1px 2px;
     font-family: var(--title-font);
     letter-spacing: var(--letter-spacing);
     left: var(--left);
@@ -39,6 +40,8 @@ body {
     transform: translate(-50%, -50%);
     position: absolute;
     text-align: center;
+    font-weight: bold ;
+    text-shadow: var(--shadow) var(--dark);
 }
 
 .principal h1 {
@@ -84,11 +87,27 @@ body {
 
 .card {
     --background-color: #11ffee00;
+    --font-size: 1em;
     background-color: var(--background-color);
     top: var(--init);
     left: var(--init);
     min-width: var(--max);
     min-height: var(--max);
+    font-family: var(--text-font);
+    font-weight: bold;
+    font-size: var(--font-size)
+}
+
+.card-title {
+    --font-size: 1.7em;
+    font-size: var(--font-size);
+    text-align: right;
+}
+
+.card-text {
+    --margin-top: 20px;
+    margin-top: var(--margin-top);
+    text-align: right;
 }
 
 .list-group-item {
@@ -108,5 +127,24 @@ body {
     .pincipal, h1, p {
         overflow-wrap: anywhere;
         font-size: calc(var(--font-size-welcome) - 58px);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .card-text {
+        --font-size: 12px;
+        text-align: center;
+        font-size: var(--font-size);
+    }
+    
+    .card-title {
+        --font-size: 20px;
+        text-align: center;
+        font-size: var(--font-size);
+    }
+
+    .principal h1{
+        --font-size: 35xp;
+        font-size: var(--font-size);
     }
 }
