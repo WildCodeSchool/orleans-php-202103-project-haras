@@ -25,6 +25,11 @@
                                             {{ course_day.capacity }}
                                             élève(s)
                                         </p>
+                                        <p class="card-text">Age minimum:
+                                            <br>
+                                            {{ course_day.age }}
+                                            an(s)
+                                        </p>
                                         <div class="block-buttons d-flex flex-column">
                                             <a href="/adminCourse/edit/{{ course_day.id }}" class="btn btn-sm btn-secondary mb-1">Editer</a>
                                             <form action="/adminCourse/delete/{{course_day.id}}" method="POST" onSubmit="return confirm('Voulez-vous supprimer ?');">
