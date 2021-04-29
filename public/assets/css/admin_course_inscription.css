@@ -1,0 +1,4 @@
+.table-inscription-course {
+    --margin: 20px;
+    margin-top: var(--margin);
+}

@@ -2,10 +2,16 @@
 
 namespace App\Controller;
 
+use App\Model\PupilManager;
+
 class AdminCourseInscriptionController extends AbstractController
 {
     public function inscription(): string
     {
-        return $this->twig->render('Admin/course_inscription.html.twig');
+        $pupilManager = new PupilManager();
+        $pupils = $pupilManager->selectPupilsAndParents();
+        return $this->twig->render('Admin/course_inscription.html.twig', [
+            'pupils' => $pupils
+        ]);
     }
 }
