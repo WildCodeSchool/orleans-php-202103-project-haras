@@ -50,3 +50,11 @@
     margin-top: var(--margin);
     border-radius: var(--border-radius);
 }
+
+.alert {
+    list-style: none;
+    padding: 7em;
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+    background-size:  12px;
+}

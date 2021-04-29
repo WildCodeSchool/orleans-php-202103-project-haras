@@ -4,7 +4,14 @@
             <h1>Inscription aux Stages</h1>
         </div>
         <div>
-            <form class="form-stages" method="POST">
+            {% if errors %}
+                <ul class="alert alert-danger">
+                {% for error in errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+            <form class="form-stages" method="POST" novalidate>
                 <div class="mb-3 field">
                     <label for="firstname" class="form-label">Prénom de l'enfant :</label>
                     <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Delphine" value="" required>
