@@ -1,9 +1,13 @@
-{% extends 'layout.html.twig' %}
+{% extends 'Admin/layout_admin.html.twig' %}
 {% block navbar %}
-	<header>
-		{% include "Admin/Includes/_navbar.html.twig" %}
-	</header>
+    <header>
+        {% include 'Admin/Includes/_navbar.html.twig' %}
+    </header>
 {% endblock %}
 {% block content %}
-	<main></main>
+    <main>
+        <h1>Administration: Cours</h1>
+        {% include 'Admin/Includes/_formulary_course.html.twig' %}
+        {% include 'Admin/Includes/_show_courses.html.twig' %}
+    </main>
 {% endblock %}

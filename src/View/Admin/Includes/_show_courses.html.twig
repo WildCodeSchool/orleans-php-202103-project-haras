@@ -1,0 +1,48 @@
+<div class="container mt-5 calendar-courses">
+    <div class="d-flex justify-content-between text-center">
+        {% for course  in courses %}
+            <div class="col-2 p-1">
+                {% for key, course_day in course %}
+                    {% if key == 0 %}
+                        <h2>{{ course_day.dayString | capitalize }}</h2>
+                    {% endif %}
+                    <div class="col-12">
+                        <div class="mb-1">
+                            <button class="card card-header block-header text-center d-flex justify-content-center align-items-center col-12" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ course_day.id }}">
+                                {{ course_day.name | capitalize }}
+                                <span>({{ course_day.time | date('H:i') }})</span>
+                            </button>
+                            <div class="collapse" id="collapse{{ course_day.id }}">
+                                <div class="card text-dark bg-light mb-1 rounded-0 rounded-bottom">
+                                    <div class="card-body text-center">
+                                        <p class="card-text mb-1">Durée:
+                                            <br>
+                                            {{ course_day.duration }}
+                                            min
+                                        </p>
+                                        <p class="card-text">Capacité:
+                                            <br>
+                                            {{ course_day.capacity }}
+                                            élève(s)
+                                        </p>
+                                        <p class="card-text">Age minimum:
+                                            <br>
+                                            {{ course_day.age }}
+                                            an(s)
+                                        </p>
+                                        <div class="block-buttons d-flex flex-column">
+                                            <a href="/adminCourse/edit/{{ course_day.id }}" class="btn btn-sm btn-secondary mb-1">Editer</a>
+                                            <form action="/adminCourse/delete/{{course_day.id}}" method="POST" onSubmit="return confirm('Voulez-vous supprimer ?');">
+                                                <button class="btn btn-sm btn-danger mb-1 col-12">Supprimer</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</div>

@@ -2,6 +2,10 @@
     --full-relative: 100%;
 }
 
+.nav {
+    background-color: var(--light);
+}
+
 .nav .navbar {
     position: relative;
 }
@@ -19,6 +23,7 @@
 .nav .navbar-nav {
     width: var(--full-relative);
     justify-content: space-around;
+    text-align: center;
 }
 
 .nav .button-navbar {
@@ -34,10 +39,9 @@
     border-radius: var(--radius-btn);
     width: var(--width-btn);
     height: var(--height-btn);
-    background-color: var(--primary-color);
     font-family: var(--title-font);
     text-decoration: none;
-    color: var(--light);
+    color: var(--primary-color);
 }
 
 .nav .custom-toggler .navbar-toggler-icon {
@@ -64,4 +68,5 @@
         width: calc(var(--full-relative) - var(--reduce));
     }
 }
+
 

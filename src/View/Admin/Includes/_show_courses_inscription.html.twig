@@ -1,0 +1,30 @@
+<div class="table-inscription d-flex justify-content-center text-center">    
+    <table class="table table-inscription-course align-middle">
+        <thead class="bg-light bg-gradient">
+            <tr>
+                <th scope="col">Nom de l'élève</th>
+                <th scope="col">Prénom de l'élève</th>
+                <th scope="col">Date de naissance</th>
+                <th scope="col">Expérience</th>
+                <th scope="col">Prénom d'un parent</th>
+                <th scope="col">Nom d'un parent</th>
+                <th scope="col">Adresse email</th>
+                <th scope="col">Numéro de téléphone</th>
+            </tr>
+        </thead>
+        <tbody>  	
+        {% for pupil in pupils %}
+            <tr>
+                <td>{{ pupil.pupil_lastname }}</td>
+                <td>{{ pupil.pupil_firstname }}</td>
+                <td>{{ pupil.birthday }}</td>
+                <td>{% if pupil.experience == true %} Oui {% else %} Non {% endif %}</td>
+                <td>{{ pupil.firstname }}</td>
+                <td>{{ pupil.lastname }}</td>
+                <td>{{ pupil.email }}</td>
+                <td>{{ pupil.phone_number }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

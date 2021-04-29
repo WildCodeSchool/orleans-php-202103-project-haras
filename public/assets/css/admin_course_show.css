@@ -1,0 +1,37 @@
+.calendar-courses .card {
+    --height: 280px;
+    --proportion-height: calc(var(--height) - 180px);
+    --font-size: 0.8em;
+    height: var(--height);
+}
+
+.calendar-courses .card-header {
+    height: var(--proportion-height);
+    align-content: center;
+    background-color: var(--primary-color);
+    color: var(--light);
+}
+
+.calendar-courses .card-header span {
+    font-size: var(--font-size);
+}
+
+.calendar-courses .card-header:hover {
+    color: var(--secondary-color);
+}
+
+@media screen and (max-width: 992px) {
+    .calendar-courses .card {
+        --height: 250px;
+        --proportion-height: calc(var(--height) - 150px);
+    }
+    .calendar-courses .card-body, .calendar-courses .card-body .btn {
+        font-size: var(--font-size);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .calendar-courses {
+        display: none;
+    }
+}

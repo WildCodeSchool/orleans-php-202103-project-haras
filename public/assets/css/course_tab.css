@@ -1,7 +1,7 @@
 .course-tab-section {
     --padding: 2em;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     padding: var(--padding); 
     background-color: var(--grey);
     flex-direction: column;
@@ -39,12 +39,17 @@
     --width: 10em;
     margin-bottom: var(--margin);
     margin-top: var(--margin);
-    border-radius: 10em;
+    border-radius: var(--width);
     background-color: var(--secondary-color);
     height: var(--margin);
     width: var(--width);
     color: var(--dark);
     border: none;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
 }
 
 .btn-course {

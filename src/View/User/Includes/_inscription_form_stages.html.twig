@@ -1,0 +1,56 @@
+{% block stages_form_inscription %}
+    <div class="form col-xl-6 offset-xl-3">
+        <div class="form-title">
+            <h1>Inscription aux Stages</h1>
+        </div>
+        <div>
+            <form class="form-stages" method="POST">
+                <div class="mb-3 field">
+                    <label for="firstname" class="form-label">Prénom de l'enfant :</label>
+                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Delphine" value="" required>
+                </div>
+                <div class="mb-3 field">
+                    <label for="lastname" class="form-label">Nom de l'enfant :</label>
+                    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Merlier" value="" required>
+                </div>
+                <div class="mb-3 field">
+                    <label for="birthday" class="form-label">Date de naissance de l'enfant :</label>
+                    <input type="date" class="form-control" id="birthday" name="birthday" placeholder="" value="" required>
+                </div>
+                <div class="mb-3 field">
+                    <label for="experience" class="form-label"> Votre enfant est-il déjà monté sur un poney ? :</label>
+                    <select name="experience" class="form-control" value="" required>
+                        <option value="true">Oui</option>
+                        <option value="false">Non</option>
+                    </select>
+                </div>
+                <div class="mb-3 field">
+                    <label for="stage" class="form-label"> A quel stage souhaitez vous inscrire votre enfant ? :</label>
+                    <select name="stage" class="form-control" value="" required>
+                        <option></option>
+                        <option></option>
+                        <option></option>
+                        <option></option>
+                    </select>
+                </div>
+                <div class="mb-3 field">
+                    <label for="parent-firstname" class="form-label">Prénom :</label>
+                    <input type="text" class="form-control" id="parent-firstname" name="parent-firstname" placeholder="Laurie" value="" required>
+                </div>
+                <div class="mb-3 field">
+                    <label for="parent-lastname" class="form-label">Nom :</label>
+                    <input type="text" class="form-control" id="parent-lastname" name="parent-lastname" placeholder="Merlier" value="" required>
+                </div>
+                <div class="mb-3 field">
+                    <label for="email" class="form-label">Email :</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="laurie.merlier@poney.com" value="" required>
+                </div>
+                <div class="mb-3 field">
+                    <label for="phone" class="form-label">Téléphone :</label>
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="06.00.00.00.00" value="" required>
+                </div>
+                <button class="inscription-button">S'inscrire</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'Admin/layout_admin.html.twig' %}
+{% block navbar %}
+    <header>
+        {% include 'Admin/Includes/_navbar.html.twig' %}
+    </header>
+{% endblock %}
+{% block content %} 
+    <main>
+        <h1>Administration: Demandes d'inscription aux cours</h1>
+        {% include 'Admin/Includes/_show_courses_inscription.html.twig' %}
+    </main>
+{% endblock %}
