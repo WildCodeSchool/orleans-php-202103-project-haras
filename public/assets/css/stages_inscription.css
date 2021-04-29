@@ -1,0 +1,52 @@
+.form-stages {
+    --margin: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: var(--margin);
+    margin-top: var(--margin);
+    font-family: var(--text-font);
+}
+
+.inscription-button {
+    --margin: 3em;
+    --width: 10em;
+    margin-bottom: var(--margin);
+    margin-top: var(--margin);
+    border-radius: var(--width);
+    background-color: var(--secondary-color);
+    height: var(--margin);
+    width: var(--width);
+    color: var(--dark);
+    border: none;
+}
+
+.inscription-button:hover {
+    text-decoration: underline;
+}
+
+.form-title {
+    --margin: 5em;
+    font-family: var(--title-font);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: var(--margin);
+}
+
+.field {
+    --width: 60%;
+    width: var(--width);
+}
+
+.form {
+    --border: 2px;
+    --margin: 3em;
+    --border-radius: 1.5em;
+    background-color:white;
+    border: var(--border) solid var(--primary-color);
+    margin-bottom: var(--margin);
+    margin-top: var(--margin);
+    border-radius: var(--border-radius);
+}
