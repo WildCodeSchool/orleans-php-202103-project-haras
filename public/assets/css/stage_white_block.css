@@ -1,12 +1,14 @@
 .stage-white-block-section {
     --padding: 2em;
+    --min-height: 120vh;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     padding: var(--padding); 
     background-color: var(--light);
     flex-direction: column;
     flex-wrap: wrap;
     font-family: var(--text-font);
+    min-height: var(--min-height);
 }
 
 .white-block-title {
@@ -19,6 +21,10 @@
 }
 
 .white-block-text {
+    --padding-top: 20px;
+    --margin: 10px;
     display: flex;
     flex-wrap: wrap;
+    padding-top: var(--padding-top);
+    margin: var(--margin)
 }

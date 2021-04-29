@@ -1,0 +1,30 @@
+.contact-grey-section {
+    --padding-section: 2em;
+    display: flex;
+    justify-content: flex-end;
+    padding: var(--padding-section);
+    background-color: var(--grey);
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: var(--text-font);
+}
+
+.button {
+    --padding-section: 2em;
+    --padding-button: 15px 32px;
+    --font-size-button: 16px;
+    --border-radius-button: 8px;
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    padding: var(--padding-button);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: var(--font-size-button);
+    border-radius: var(--border-radius-button);
+}
+
+.button:hover {
+    color: var(--secondary-color);
+}

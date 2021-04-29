@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Model\ParentManager;
+use App\Model\PupilManager;
+
 class CourseFormController extends AbstractController
 {
     public function inscription(): string
@@ -13,6 +16,10 @@ class CourseFormController extends AbstractController
             $course = array_map('trim', $_POST);
             $errors = $this->validate($course);
             if (empty($errors)) {
+                $parentManager = new ParentManager();
+                $course['parent_id'] = $parentManager->insert($course);
+                $pupilManager = new PupilManager();
+                $pupilManager->insert($course);
                 $course = null;
                 $thanks = "Merci " . $_POST['parentfirstname'] . ", votre demande
                 d'inscription pour " . $_POST['firstname'] . " à nos cours d'équitation

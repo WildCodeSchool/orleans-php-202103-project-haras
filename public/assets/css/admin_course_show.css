@@ -1,6 +1,6 @@
 .calendar-courses .card {
-    --height: 210px;
-    --proportion-height: calc(var(--height) - 110px);
+    --height: 280px;
+    --proportion-height: calc(var(--height) - 180px);
     --font-size: 0.8em;
     height: var(--height);
 }
@@ -22,8 +22,8 @@
 
 @media screen and (max-width: 992px) {
     .calendar-courses .card {
-        --height: 200px;
-        --proportion-height: calc(var(--height) - 100px);
+        --height: 250px;
+        --proportion-height: calc(var(--height) - 150px);
     }
     .calendar-courses .card-body, .calendar-courses .card-body .btn {
         font-size: var(--font-size);
