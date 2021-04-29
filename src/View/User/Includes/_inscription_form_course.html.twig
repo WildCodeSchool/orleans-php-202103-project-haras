@@ -55,10 +55,11 @@
                         {% for course_select  in courses_select %}
                             {% for course_day in course_select %}
                                 <option value="{{ course_day.id }}">
-                                    {{ course_day.dayString | capitalize }} ({{ course_day.time | date('H:i') }})
-                                     - {{ course_day.name }}
-                                     - Durée du cours: {{ course_day.duration }} min
-                                     - Age Minimum: {{ course_day.age}} an(s)
+                                    {{ course_day.dayString | capitalize }}
+                                    ({{ course_day.time | date('H:i') }})
+                                    - {{ course_day.name }}
+                                    - Durée du cours: {{ course_day.duration }} min
+                                    - Age Minimum: {{ course_day.age}} an(s)
                                 </option>
                             {% endfor %}
                         {% endfor %}
