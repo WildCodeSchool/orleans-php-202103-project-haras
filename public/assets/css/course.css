@@ -2,3 +2,25 @@
 @import 'carousel.css';
 @import 'course_white_block.css';
 
+@media (min-width: 1000px) {
+    .content-page {
+        display: flex;
+        justify-content: center;
+        width: 95%;
+        padding-bottom: 40px;
+        min-height: 100%;
+    }
+    
+    .left-page {
+        display: flex;
+        justify-content: flex-end;
+        width: 100vw;
+        min-height: 120vh;
+    }
+    
+    .right-page {
+        display: flex;
+        min-height: 120vh;
+        width: 60vw;
+    }
+}
