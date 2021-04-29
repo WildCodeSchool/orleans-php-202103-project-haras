@@ -1,0 +1,59 @@
+<div class="formulary-course-admin col-md-8 offset-md-2 mt-5">
+    {% if errors %}
+        <ul class="alert alert-danger">
+            {% for error in errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <p class="col-lg-3 offset-lg-9 col-md-4 offset-md-8 col-5 offset-6 mb-0">
+        <span class="text-danger">*</span>
+        <span class="fst-italic">champs obligatoires</span>
+    </p>
+    <form action="" method="POST" class="d-flex flex-column">
+        <div class="form-group mb-3">
+            <label for="name">
+                <span class="text-danger">*</span>
+                Nom du cours
+            </label>
+            <input class="form-control" type="text" name="name" id="name" placeholder="Baby Poney" required value="{{ formulary.name }}" aria-required=" true">
+        </div>
+        <div class="form-group mb-3">
+            <label for="day">
+                <span class="text-danger">*</span>
+                Jour du cours
+            </label>
+            <select class="form-control" name="day" id="day" aria-required="true" required>
+                <option value="">Selectionner le jour de la semaine</option>
+                <option value="1" {% if formulary.day == "1" %} selected="selected" {% endif %}>Lundi</option>
+                <option value="2" {% if formulary.day == "2" %} selected="selected" {% endif %}>Mardi</option>
+                <option value="3" {% if formulary.day == "3" %} selected="selected" {% endif %}>Mercredi</option>
+                <option value="4" {% if formulary.day == "4" %} selected="selected" {% endif %}>Jeudi</option>
+                <option value="5" {% if formulary.day == "5" %} selected="selected" {% endif %}>Vendredi</option>
+                <option value="6" {% if formulary.day == "6" %} selected="selected" {% endif %}>Samedi</option>
+            </select>
+        </div>
+        <div class="form-group mb-3">
+            <label for="time">
+                <span class="text-danger">*</span>
+                Heure de début
+            </label>
+            <input class="form-control" type="time" name="time" id="time" required value="{{ formulary.time }}" aria-required="true">
+        </div>
+        <div class="form-group mb-3">
+            <label for="duration">
+                <span class="text-danger">*</span>
+                Durée (minutes)
+            </label>
+            <input class="form-control" type="text" name="duration" id="duration" required value="{{ formulary.duration }}" placeholder="maximum 120 minutes" aria-required="true">
+        </div>
+        <div class="form-group mb-3">
+            <label for="capacity">
+                <span class="text-danger">*</span>
+                Nombre d'élèves
+            </label>
+            <input class="form-control" type="text" name="capacity" id="capacity" required value="{{ formulary.capacity }}" placeholder="maximum 20 pesonnes" aria-required="true">
+        </div>
+        <button class="btn btn-primary button-formulary" type="submit">{{ button_name }}</button>
+    </form>
+</div>

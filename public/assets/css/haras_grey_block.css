@@ -1,8 +1,10 @@
 .haras-grey-section {
     --padding: 2em;
     display: flex;
+
     justify-content: flex-end;
     padding: var(--padding);
+
     background-color: var(--grey);
     flex-direction: column;
     flex-wrap: wrap;
