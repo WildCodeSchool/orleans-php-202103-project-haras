@@ -1,5 +1,6 @@
 .contact-grey-section {
     --padding-section: 2em;
+    --height: 100vh;
     display: flex;
     justify-content: flex-start;
     padding: var(--padding-section);
@@ -7,7 +8,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     font-family: var(--text-font);
-    height: 100vh;
+    height: var(--height);
 }
 
 .button {
