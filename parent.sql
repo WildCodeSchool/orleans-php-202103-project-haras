@@ -3,5 +3,5 @@ CREATE TABLE parent (
     `firstname` VARCHAR(255) NOT NULL,
     `lastname` VARCHAR(255) NOT NULL,
     `email` VARCHAR(255) NOT NULL,
-    `phone_number` INT NOT NULL,
+    `phone_number` VARCHAR(255) NOT NULL,
 );
