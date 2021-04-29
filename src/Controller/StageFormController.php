@@ -13,7 +13,7 @@ class StageFormController extends AbstractController
             $stage = array_map('trim', $_POST);
             $errors = $this->validate($stage);
             if (empty($errors)) {
-                $thanks = "Merci " . $stage['parentfirstname'] . ", votre demande
+                $thanks = "Merci " . $stage['parent-firstname'] . ", votre demande
                 d'inscription pour " . $stage['firstname'] . " à nos stages d'équitation
                 a été prise en compte, nous vous recontacterons dès que possible.";
                 $stage = null;
@@ -69,7 +69,7 @@ class StageFormController extends AbstractController
             $errors[] = 'La date de naissance de l\'enfant est requise';
         }
 
-        if (empty($stage['stages'])) {
+        if (empty($stage['stage'])) {
             $errors[] = 'Le choix du stage est requis';
         }
 
@@ -84,11 +84,11 @@ class StageFormController extends AbstractController
     {
         $errors = [];
 
-        if (empty($stage['parentfirstname'])) {
+        if (empty($stage['parent-firstname'])) {
             $errors[] = 'Le prénom d\'un parent est requis';
         }
 
-        if (empty($stage['parentlastname'])) {
+        if (empty($stage['parent-lastname'])) {
             $errors[] = 'Le nom d\'un parent est requis';
         }
 

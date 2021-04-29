@@ -1,4 +1,3 @@
--- create table course
 CREATE TABLE course (
   `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
@@ -7,7 +6,7 @@ CREATE TABLE course (
   `duration` INT NOT NULL,
   `capacity` INT NOT NULL
 );
---insert many fake courses for test
+
 INSERT INTO
   course (`name`, `day`, `time`, `duration`, `capacity`)
 VALUES
