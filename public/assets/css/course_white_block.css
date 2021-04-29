@@ -1,5 +1,6 @@
 .course-white-block-section {
     --padding: 2em;
+    --min-height: 120vh;
     display: flex;
     justify-content: flex-start;
     padding: var(--padding); 
@@ -7,7 +8,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     font-family: var(--text-font);
-    min-height: 120vh;
+    min-height: var(--min-height);
 }
 
 .white-block-title {
