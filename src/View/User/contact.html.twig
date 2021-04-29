@@ -4,6 +4,12 @@
 {% endblock %}
 {% block content %}
     {% include 'User/Includes/_contact_googlemap.html.twig' %}
-    {% include 'User/Includes/_contact_white_block.html.twig' %}
-    {% include 'User/Includes/_contact_grey_block.html.twig' %}
+     <div class='content-page'>
+        <div class='left-page'>
+            {% include 'User/Includes/_contact_white_block.html.twig' %}
+        </div>
+        <div class='right-page'>
+            {% include 'User/Includes/_contact_grey_block.html.twig' %}
+        </div>
+    </div>
 {% endblock %}
