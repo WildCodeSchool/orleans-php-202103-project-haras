@@ -36,4 +36,11 @@ class CourseManager extends AbstractManager
         $statement->bindValue('id', $item['id'], \PDO::PARAM_INT);
         $statement->execute();
     }
+
+    public function selectDistinctName(): array
+    {
+        $query = 'SELECT DISTINCT name, MIN(age) as age,
+                AVG(duration) as duration FROM ' . static::TABLE . ' GROUP BY name';
+        return $this->pdo->query($query)->fetchAll();
+    }
 }
