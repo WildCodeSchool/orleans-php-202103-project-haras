@@ -19,4 +19,11 @@ class PupilManager extends AbstractManager
         $statement->bindvalue('parent_id', $item['parent_id'], \PDO::PARAM_INT);
         $statement->execute();
     }
+
+    public function selectPupilsAndParents(): array
+    {
+        $query = 'SELECT pu.firstname AS pupil_firstname, pu.lastname AS pupil_lastname, pu.birthday, pu.experience,
+        pa.* FROM ' . static::TABLE . ' pu JOIN parent pa ON pu.parent_id = pa.id ORDER BY pu.lastname ASC';
+        return $this->pdo->query($query)->fetchAll();
+    }
 }
