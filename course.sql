@@ -8,7 +8,7 @@ CREATE TABLE course (
   age INT NOT NULL
 );
 INSERT INTO
-  course (name, day, time, duration, capacity, age)
+  course (`name`, `day`, `time`, `duration`, `capacity`, `age`)
 VALUES
   ('Baby Poney', 1, '09:00', 60, 20, 2),
   ('Poney Débutant', 2, '09:00', 60, 20, 3),
