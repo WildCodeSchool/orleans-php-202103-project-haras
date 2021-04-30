@@ -16,3 +16,25 @@ VALUES
   ('Baby Poney', 4, '09:00', 60, 20, 3),
   ('Poney Débutant', 5, '10:00', 90, 20, 6),
   ('Poney Confirmé', 6, '15:00', 120, 20, 12);
+
+CREATE TABLE parent (
+    `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `firstname` VARCHAR(255) NOT NULL,
+    `lastname` VARCHAR(255) NOT NULL,
+    `email` VARCHAR(255) NOT NULL,
+    `phone_number` VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE pupil (
+    `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `firstname` VARCHAR(255) NOT NULL,
+    `lastname` VARCHAR(255) NOT NULL,
+    `birthday` DATE NOT NULL,
+    `experience` BOOLEAN NOT NULL,
+    `parent_id` INT NOT NULL
+);
+
+ALTER TABLE pupil
+ADD CONSTRAINT fk_pupil_parent
+FOREIGN KEY (parent_id)
+REFERENCES parent(id);
