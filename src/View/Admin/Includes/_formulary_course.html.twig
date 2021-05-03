@@ -45,21 +45,24 @@
                 <span class="text-danger">*</span>
                 Durée (minutes)
             </label>
-            <input class="form-control" type="text" name="duration" id="duration" required value="{{ formulary.duration }}" placeholder="maximum 120 minutes" aria-required="true">
+            <input class="form-control" type="text" name="duration" id="duration" required value="{{ formulary.duration }}" aria-required="true" aria-describedby="DuratiopnHelp">
+            <div id="DuratiopnHelp" class="form-text ps-2">Maximum 120 minutes</div>
         </div>
         <div class="form-group mb-3">
             <label for="capacity">
                 <span class="text-danger">*</span>
                 Nombre d'élèves
             </label>
-            <input class="form-control" type="text" name="capacity" id="capacity" required value="{{ formulary.capacity }}" placeholder="maximum 20 pesonnes" aria-required="true">
+            <input class="form-control" type="text" name="capacity" id="capacity" required value="{{ formulary.capacity }}" aria-required="true" aria-describedby="CapacityHelp">
+            <div id="CapacityHelp" class="form-text ps-2">Maximum 20 personnes</div>
         </div>
         <div class="form-group mb-3">
             <label for="age">
                 <span class="text-danger">*</span>
                 age minimum
             </label>
-            <input class="form-control" type="text" name="age" id="age" required value="{{ formulary.age }}" placeholder="minimum 1 an" aria-required="true">
+            <input class="form-control" type="text" name="age" id="age" required value="{{ formulary.age }}" aria-required="true" aria-describedby="ageHelp">
+            <div id="ageHelp" class="form-text ps-2">Minimum 1 an</div>
         </div>
         <button class="btn btn-primary button-formulary" type="submit">{{ button_name }}</button>
     </form>
