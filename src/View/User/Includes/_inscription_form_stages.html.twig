@@ -1,68 +1,80 @@
-{% block stages_form_inscription %}
+{% block course_form_inscription %}
     <div class="form col-xl-6 offset-xl-3">
         <div class="form-title">
-            <h1>Inscription aux Stages</h1>
+            <h1>Formulaire d'inscription aux cours</h1>
         </div>
-        <div>
             {% if errors %}
-                <ul class="alert alert-danger col-8 offset-2 mt-3">
-                {% for error in errors %}
-                    <li>{{ error }}</li>
-                {% endfor %}
+                <ul class="alert alert-danger">
+                    {% for error in errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
                 </ul>
-            {% elseif errors is empty and stage is null %}
-                <ul class="alert alert-success col-8 offset-2 mt-3">
+            {% elseif errors is empty and course is null %}
+                <ul class="alert alert-success">
                     <li>{{ thanks }}</li>
                 </ul>
             {% endif %}
-                <form class="form-stages" method="POST" novalidate>
-                    <div class="mb-3 field">
-                        <label for="firstname" class="form-label">Prénom de l'enfant :</label>
-                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Delphine" value="" required>
-                    </div>
-                    <div class="mb-3 field">
-                        <label for="lastname" class="form-label">Nom de l'enfant :</label>
-                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Merlier" value="" required>
-                    </div>
-                    <div class="mb-3 field">
-                        <label for="birthday" class="form-label">Date de naissance de l'enfant :</label>
-                        <input type="date" class="form-control" id="birthday" name="birthday" placeholder="" value="" required>
-                    </div>
-                    <div class="mb-3 field">
-                        <label for="experience" class="form-label"> Votre enfant est-il déjà monté sur un poney ? :</label>
-                        <select name="experience" class="form-control" value="" required>
-                            <option value="true">Oui</option>
-                            <option value="false">Non</option>
-                        </select>
-                    </div>
-                    <div class="mb-3 field">
-                        <label for="stage" class="form-label"> A quel stage souhaitez vous inscrire votre enfant ? :</label>
-                        <select name="stage" class="form-control" id="stage" name="stage" value="true" required>
-                            <option></option>
-                            <option>Stage 1</option>
-                            <option>Stage 2</option>
-                            <option>Stage 3</option>
-                            <option>Stage 4</option>
-                        </select>
-                    </div>
-                    <div class="mb-3 field">
-                        <label for="parent-firstname" class="form-label">Prénom du parent:</label>
-                        <input type="text" class="form-control" id="parent-firstname" name="parent-firstname" placeholder="Laurie" value="" required>
-                    </div>
-                    <div class="mb-3 field">
-                        <label for="parent-lastname" class="form-label">Nom du parent:</label>
-                        <input type="text" class="form-control" id="parent-lastname" name="parent-lastname" placeholder="Merlier" value="" required>
-                    </div>
-                    <div class="mb-3 field">
-                        <label for="email" class="form-label">Email :</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="laurie.merlier@poney.com" value="" required>
-                    </div>
-                    <div class="mb-3 field">
-                        <label for="phone" class="form-label">Téléphone :</label>
-                        <input type="text" class="form-control" id="phone" name="phone" placeholder="06.00.00.00.00" value="" required>
-                    </div>
-                    <button class="inscription-button">S'inscrire</button>
-                </form>
-            </div>
+        <p class="col-sm-3 offset-sm-9 col-6 offset-6">
+            <span class="text-danger">*</span>
+            <span class="fst-italic">champs obligatoires</span>
+        </p>
+        <div>
+            <form class="form-course" method="POST">
+                <div class="mb-3 field">
+                    <label for="firstname" class="form-label">
+                        <span class="text-danger">*</span>Prénom de l'enfant :</label>
+                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Delphine" required value="{{ course.firstname }}" aria-required="true">
+                </div>
+                <div class="mb-3 field">
+                    <label for="lastname" class="form-label">
+                        <span class="text-danger">*</span>Nom de l'enfant :</label>
+                    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Merlier" required value="{{ course.lastname }}" aria-required="true">
+                </div>
+                <div class="mb-3 field">
+                    <label for="birthday" class="form-label">
+                        <span class="text-danger">*</span>Date de naissance de l'enfant :</label>
+                    <input type="date" class="form-control" id="birthday" name="birthday" placeholder="" required value="{{ course.birthday }}" aria-required="true">
+                </div>
+                <div class="mb-3 field">
+                    <label for="experience" class="form-label">
+                        <span class="text-danger">*</span> Votre enfant est-il déjà monté sur un poney ? :
+                    </label>
+                    <select name="experience" class="form-control">
+                        <option value="true">Oui</option>
+                        <option value="false">Non</option>
+                    </select>
+                </div>
+                <div class="mb-3 field">
+                    <label for "choice" class="form-label"> 
+                        <span class="text-danger">*</span> A quel cours souhaitez vous inscrire votre enfant ? :
+                    </label>
+                    <select name="course" class="form-control" aria-required="true" required>
+                        <option></option>
+                        <option></option>
+                        <option></option>
+                        <option></option>
+                    </select>
+                </div>
+                <div class="mb-3 field">
+                    <label for="parentfirstname" class="form-label">
+                    <input type="text" class="form-control" id="parentfirstname" name="parentfirstname" placeholder="Laurie" required value="{{ course.parentfirstname }}" aria-required="true">
+                </div>
+                <div class="mb-3 field">
+                    <label for="parentlastname" class="form-label">
+                    <input type="text" class="form-control" id="parentlastname" name="parentlastname" placeholder="Merlier" required value="{{ course.parentlastname }}" aria-required="true">
+                </div>
+                <div class="mb-3 field">
+                    <label for="email" class="form-label">
+                        <span class="text-danger">*</span>Email :</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="laurie.merlier@poney.com" required value="{{ course.email }}" aria-required="true">
+                </div>
+                <div class="mb-3 field">
+                    <label for="phone" class="form-label">
+                        <span class="text-danger">*</span>Téléphone :</label>
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="06.00.00.00.00." required value="{{ course.phone }}" aria-required="true">
+                </div>
+                <button class="inscription-button">S'inscrire</button>
+            </form>
         </div>
+    </div>
 {% endblock %}
