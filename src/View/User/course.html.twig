@@ -3,8 +3,13 @@
     <link rel='stylesheet' href='/assets/css/course.css'>
 {% endblock %}
 {% block content %}
-    {% include 'Includes/_banner.html.twig' with {image: 'collector.webp', alt: 'desesperate horse', title: 'COURS'} %}
-    {% include 'User/Includes/_course_tab.html.twig' %}
-    {% include 'User/Includes/_carousel.html.twig' %}
-    {% include 'User/Includes/_course_white_block.html.twig' %}
+    {% include 'Includes/_banner.html.twig' with {image: 'banner_course.webp', alt: 'cours', title: 'COURS'} %}
+    <div class='content-page'>
+        <div class='left-page'>
+            {% include 'User/Includes/_course_white_block.html.twig' %}
+        </div>
+        <div class='right-page'>
+            {% include 'User/Includes/_course_tab.html.twig' %}
+        </div>
+    </div>
 {% endblock %}

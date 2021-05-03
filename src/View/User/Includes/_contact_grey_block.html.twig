@@ -1,0 +1,29 @@
+{% block contact_grey_block %}
+    <div class="grey-block col-xl-7 m-0 col-sm-12">
+        <form class="contact-grey-title" method="POST">
+            <div class="contact-grey-section">
+                <div class="mb-3">
+                    <label for="lastname" class="form-label">Nom</label>
+                    <input type="text" class="form-control" id="lastname" name="lastname">
+                </div>
+                <div class="mb-3">
+                    <label for="firstname" class="form-label">Prenom</label>
+                    <input type="text" class="form-control" id="firstname" name="firstname">
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Telephone</label>
+                    <input type="text" class="form-control" id="phone" name="phone">
+                </div>
+                <div class="mb-3">
+                    <label for="email"class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" name="textarea" rows="3"></textarea>
+                </div>
+                <button class="button">Envoyer</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

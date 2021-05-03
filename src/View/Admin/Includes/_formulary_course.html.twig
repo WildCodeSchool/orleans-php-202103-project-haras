@@ -54,6 +54,13 @@
             </label>
             <input class="form-control" type="text" name="capacity" id="capacity" required value="{{ formulary.capacity }}" placeholder="maximum 20 pesonnes" aria-required="true">
         </div>
+        <div class="form-group mb-3">
+            <label for="age">
+                <span class="text-danger">*</span>
+                age minimum
+            </label>
+            <input class="form-control" type="text" name="age" id="age" required value="{{ formulary.age }}" placeholder="minimum 1 an" aria-required="true">
+        </div>
         <button class="btn btn-primary button-formulary" type="submit">{{ button_name }}</button>
     </form>
 </div>

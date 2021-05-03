@@ -1,4 +1,50 @@
 @import 'course_tab.css';
-@import 'carousel.css';
 @import 'course_white_block.css';
+.calendar-courses .card {
+    --font-size: 0.6em;
+    --width-card: 100%;
+    font-size: var(--font-size);
+    width: var(--width-card);
+}
 
+.calendar-courses .card-header {
+    background-color: var(--primary-color);
+}
+
+.calendar-courses .list-group-item {
+    --height-box: 60px;
+    height: var(--height-box);
+}
+
+@media (min-width: 1000px) {
+    .content-page {
+        --width: 95%;
+        --padding-bottom: 40px;
+        --min-height: 100%;
+        display: flex;
+        justify-content: center;
+        width: var(--width);
+        padding-bottom: var(--padding-bottom);
+        min-height: var(--min-height);
+    }
+    .left-page {
+        --width: 100vw;
+        --min-height: 120vh;
+        display: flex;
+        justify-content: flex-end;
+        width: var(--width);
+        min-height: var(--min-height);
+    }
+    .right-page {
+        --width: 60vw;
+        display: flex;
+        min-height: var(--min-height);
+        width: var(--width);
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .calendar-courses .list-group-item {
+        border: none;
+    }
+}

@@ -6,6 +6,9 @@ class StageController extends AbstractController
 {
     public function stage(): string
     {
-        return $this->twig->render('User/stage.html.twig');
+        $imagesCarousel = ['stage1.jpg', 'stage2.jpg', 'stage3.jpg'];
+        return $this->twig->render('User/stage.html.twig', [
+            'images' => $imagesCarousel,
+        ]);
     }
 }

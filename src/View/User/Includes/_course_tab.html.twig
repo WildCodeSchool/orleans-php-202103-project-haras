@@ -1,11 +1,13 @@
 {% block course_tab %}
-    <div class="course-tab-section col-xl-3 offset-xl-8 col-sm-10 offset-sm-1">
+    <div class="course-tab-section col-xl-8 m-0 col-sm-12">
         <div class="tab-title-text">
             <h2 class="tab-title">
                 CONDITIONS
             </h2>
             <p class="tab-text">
-                Lorem ipsum dolor sit amet. Sed doloribus id eligendi rerum eos impedit dolore eos excepturi quisquam et corporis Quis At sunt voluptatem ex ullam dolorum. Et corrupti tempore id voluptatibus atque eos itaque enim non impedit laudantium est excepturi sunt et quia saepe! Non accusantium quia id culpa iure sed fugiat optio a reiciendis ipsum eum sunt nostrum. 
+                A partir de 18 mois pour le Baby-Poney, jusqu'à un haut niveau d'équitation.
+                Équipement obligatoire prêté par le Haras pour les plus petits. Pantalon long, bottes et
+                casque/bombe obligatoire pour les plus grands.
             </p>
         </div>
         <div class="tab-title-text">
@@ -13,7 +15,11 @@
                 INSCRIPTION
             </h2>
             <p class="tab-text">
-                Lorem ipsum dolor sit amet. Sed doloribus id eligendi rerum eos impedit dolore eos excepturi quisquam et corporis Quis At sunt voluptatem ex ullam dolorum. Et corrupti tempore id voluptatibus atque eos itaque enim non impedit laudantium est excepturi sunt et quia saepe! Non accusantium quia id culpa iure sed fugiat optio a reiciendis ipsum eum sunt nostrum. 
+                Vous souhaitez découvrir le poney en famille, apprendre le dressage de poney tout en s'amusant,
+                ou vous initier au trot et au galop pour les plus jeunes? </br>
+                Vous souhaitez apprendre la cavalerie, panser, seller, monter à cheval ou encore faire de la compétition ? </br>
+                Le Haras du Val de Loire est l'endroit idéal ! </br>
+                Pour les nouveaux comme pour les plus chevronés n'hésitez pas à vous inscrire !
             </p>
         </div>
         <div class="btn-insc">
@@ -22,69 +28,33 @@
             </a>
         </div>
         <h2 class="tab-title">
-            DETAILS
+            DÉTAILS
         </h2>
         <div class="tab">
-            <button class="btn-course" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
-                Baby Poney
-            </button>    
-            <div class="collapse" id="collapse1">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://picsum.photos/id/1024/300/300" class="card-img-top" alt="Baby Poney Photo">
-                    <div class="card-body">
-                        <ul class="card-text">
-                            <li> Âge: à partir de 18 mois </li>
-                            <li> Horaires: </li>
-                            <li> Tarif: </li>
-                        </ul>
+            {% for course in courses %}
+                <button class="btn-course" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}">
+                    {{ course.name }}
+                </button>
+                <div class="collapse" id="collapse{{ loop.index }}">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://picsum.photos/id/1024/300/300" class="card-img-top" alt="Baby Poney Photo">
+                        <div class="card-body">
+                            <ul class="card-text">
+                                <li>
+                                    Âge minimum:
+                                    {{ course.age }}
+                                    an(s)
+                                </li>
+                                <li>
+                                    Durée moyenne:
+                                    {{ course.duration | number_format(0) }}
+                                    min
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div> 
-            <button class="btn-course" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
-                Eveil Poney
-            </button>    
-            <div class="collapse" id="collapse2">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://picsum.photos/id/1003/300/300" class="card-img-top" alt="Baby Poney Photo">
-                    <div class="card-body">
-                        <ul class="card-text">
-                            <li> Âge: 3 à 5 ans </li>
-                            <li> Horaires: </li>
-                            <li> Tarif: </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <button class="btn-course" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
-                Poney
-            </button>
-            <div class="collapse" id="collapse3">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://picsum.photos/id/1084/300/300" class="card-img-top" alt="Baby Poney Photo">
-                    <div class="card-body">
-                        <ul class="card-text">
-                            <li> Âge: à partir de 6 ans</li>
-                            <li> Horaires: </li>
-                            <li> Tarif: </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <button class="btn-course" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
-                Cheval
-            </button>
-            <div class="collapse" id="collapse4">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://picsum.photos/id/200/300/300" class="card-img-top" alt="Baby Poney Photo">
-                    <div class="card-body">
-                        <ul class="card-text">
-                            <li> Niveau minimum: Galop 3 </li>
-                            <li> Horaires: </li>
-                            <li> Tarif: </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

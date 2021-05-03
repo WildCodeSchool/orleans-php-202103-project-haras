@@ -1,7 +1,0 @@
-element {
-    --imageSize: 600px;
-}
-
-.carousel-inner {
-    height: var(--imageSize);
-}
