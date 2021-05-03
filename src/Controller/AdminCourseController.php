@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\CourseManager;
+use App\Service\Sort;
 
 class AdminCourseController extends AbstractController
 {
@@ -16,12 +17,10 @@ class AdminCourseController extends AbstractController
         'age' => 1,
     ];
 
-    private const DAYS = [1 => 'Lundi', 2 => 'Mardi', 3 => 'Mercredi', 4 => 'Jeudi', 5 => 'Vendredi', 6 => 'Samedi'];
-
     public function course(): string
     {
         $courseManager = new CourseManager();
-        $coursesByDay = $this->sortingByDay($courseManager->selectAll('time'));
+        $coursesByDay = (new Sort())->sortingCoursesByDay($courseManager->selectAll('time'));
         $errors = [];
         $formData = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -44,7 +43,7 @@ class AdminCourseController extends AbstractController
     public function edit(int $id): string
     {
         $courseManager = new CourseManager();
-        $coursesByDay = $this->sortingByDay($courseManager->selectAll('time'));
+        $coursesByDay = (new Sort())->sortingCoursesByDay($courseManager->selectAll('time'));
         $errors = [];
         $formData = $courseManager->selectOneById($id);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -158,23 +157,5 @@ class AdminCourseController extends AbstractController
         }
 
         return $errors;
-    }
-
-    /**
-     * Sorting courses by day.
-     *
-     * @param array $courses
-     * @return array
-     */
-    private function sortingByDay(array $courses): array
-    {
-        $coursesByDay = [];
-        foreach ($courses as $course) {
-            $course['dayString'] = self::DAYS[$course['day']];
-            $coursesByDay[$course['day']][] = $course;
-        }
-        ksort($coursesByDay);
-
-        return $coursesByDay;
     }
 }
