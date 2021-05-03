@@ -68,12 +68,12 @@
                 <div class="mb-3 field">
                     <label for="parentfirstname" class="form-label">
                         <span class="text-danger">*</span>Prénom :</label>
-                    <input type="text" class="form-control" id="parentfirstname" name="parentfirstname" placeholder="Laurie" required value="{{ course.parentfirstname }}" aria-required="true">
+                    <input type="text" class="form-control" id="parentfirstname" name="parentfirstname" placeholder="Laurie" required value="{{ course.parent_firstname }}" aria-required="true">
                 </div>
                 <div class="mb-3 field">
                     <label for="parentlastname" class="form-label">
                         <span class="text-danger">*</span>Nom :</label>
-                    <input type="text" class="form-control" id="parentlastname" name="parentlastname" placeholder="Merlier" required value="{{ course.parentlastname }}" aria-required="true">
+                    <input type="text" class="form-control" id="parentlastname" name="parentlastname" placeholder="Merlier" required value="{{ course.parent_lastname }}" aria-required="true">
                 </div>
                 <div class="mb-3 field">
                     <label for="email" class="form-label">
@@ -83,9 +83,9 @@
                 <div class="mb-3 field">
                     <label for="phone" class="form-label">
                         <span class="text-danger">*</span>Téléphone :</label>
-                    <input type="text" class="form-control" id="phone" name="phone" placeholder="06.00.00.00.00." required value="{{ course.phone }}" aria-required="true">
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="06.00.00.00.00." required value="{{ course.phone_number }}" aria-required="true">
                 </div>
-                <button class="inscription-button">S'inscrire</button>
+                <button class="inscription-button">{{ button_name }}</button>
             </form>
         </div>
     </div>
