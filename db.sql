@@ -38,3 +38,12 @@ ALTER TABLE pupil
 ADD CONSTRAINT fk_pupil_parent
 FOREIGN KEY (parent_id)
 REFERENCES parent(id);
+
+CREATE TABLE stage (
+  `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  `starting_day` DATE NOT NULL,
+  `ending_day` DATE NOT NULL,
+  `capacity` INT NOT NULL,
+  `age` INT NOT NULL
+);
