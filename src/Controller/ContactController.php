@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-
 class ContactController extends AbstractController
 {
     public function contact(): string
@@ -37,7 +36,8 @@ class ContactController extends AbstractController
                 $data = null;
             }
         }
-        return $this->twig->render('User/contact.html.twig',[
+
+        return $this->twig->render('User/contact.html.twig', [
             'success' => $message,
             'data' => $data,
             'errors' => $errors,
