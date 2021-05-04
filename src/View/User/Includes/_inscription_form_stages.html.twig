@@ -45,24 +45,23 @@
                             <span class="text-danger">*</span> A quel stage souhaitez vous inscrire votre enfant ? :
                         </label>
                         <select name="stage" class="form-control" id="stage" aria-required="true" value="true" required>
-                            <option></option>
-                            <option>Stage 1</option>
-                            <option>Stage 2</option>
-                            <option>Stage 3</option>
-                            <option>Stage 4</option>
+                            <option value="">Choisissez votre stage</option>
+                            {% for stage in stages %}
+                                <option value="{{ stage.id }}">{{ stage.name | capitalize }} - {{ stage.age }} ans minimum - Début: {{ stage.starting_day | date('d/m/y') }} - Fin: {{ stage.ending_day | date('d/m/y') }} </option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div class="mb-3 field">
-                        <label for="parent-firstname" class="form-label">
+                        <label for="parentfirstname" class="form-label">
                             <span class="text-danger">*</span> Prénom du parent :
                         </label>
-                        <input type="text" class="form-control" id="parent-firstname" name="parent-firstname" placeholder="Laurie" required value="{{ stage.parentfirstname }}" aria-required="true">
+                        <input type="text" class="form-control" id="parentfirstname" name="parentfirstname" placeholder="Laurie" required value="{{ stage.parentfirstname }}" aria-required="true">
                     </div>
                     <div class="mb-3 field">
-                        <label for="parent-lastname" class="form-label">
+                        <label for="parentlastname" class="form-label">
                             <span class="text-danger">*</span> Nom du parent :
                         </label>
-                        <input type="text" class="form-control" id="parent-lastname" name="parent-lastname" placeholder="Merlier" required value="{{ stage.parentfirstname }}" aria-required="true">
+                        <input type="text" class="form-control" id="parentlastname" name="parentlastname" placeholder="Merlier" required value="{{ stage.parentfirstname }}" aria-required="true">
                     </div>
                     <div class="mb-3 field">
                         <label for="email" class="form-label">

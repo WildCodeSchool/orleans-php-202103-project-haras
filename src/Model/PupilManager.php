@@ -29,6 +29,16 @@ class PupilManager extends AbstractManager
         return $this->pdo->query($query)->fetchAll();
     }
 
+    public function selectPupilsAndParentsStage(): array
+    {
+        $query = 'SELECT pu.firstname AS pupil_firstname, pu.lastname AS pupil_lastname, pu.birthday, pu.experience,
+        pa.*, st.name, st.age, st.starting_day, st.ending_day FROM ' . static::TABLE . ' pu
+        JOIN parent pa ON pu.parent_id = pa.id
+        JOIN staging sta ON sta.pupil_id = pu.id
+        JOIN stage st ON st.id = sta.stage_id ORDER BY pu.lastname ASC';
+        return $this->pdo->query($query)->fetchAll();
+    }
+
     public function selectPupilsAndParentsById(int $id): array
     {
         $query = 'SELECT pu.*, pa.firstname AS parent_firstname, pa.lastname AS parent_lastname, pa.email,
