@@ -36,7 +36,7 @@ class AdminStageController extends AbstractController
         ]);
     }
 
-     public function edit(int $id): string
+    public function edit(int $id): string
     {
         $errors = [];
         $stageManager = new StageManager();
