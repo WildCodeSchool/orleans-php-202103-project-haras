@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Model\CourseManager;
 use App\Model\ParentManager;
 use App\Model\PupilManager;
+use App\Model\CoursingManager;
 use App\Service\Sort;
 
 class CourseFormController extends AbstractController
@@ -22,11 +23,15 @@ class CourseFormController extends AbstractController
             if (empty($errors)) {
                 if ($course['experience'] === 'false') {
                     $course['experience'] = 0;
+                } elseif ($course['experience'] === 'true') {
+                    $course['experience'] = 1;
                 }
                 $parentManager = new ParentManager();
                 $course['parent_id'] = $parentManager->insert($course);
                 $pupilManager = new PupilManager();
-                $pupilManager->insert($course);
+                $course['pupil_id'] = $pupilManager->insert($course);
+                $coursingManager = new CoursingManager();
+                $coursingManager->insert($course);
                 $course = null;
                 $thanks = "Merci " . $_POST['parentfirstname'] . ", votre demande
                 d'inscription pour " . $_POST['firstname'] . " à nos cours d'équitation

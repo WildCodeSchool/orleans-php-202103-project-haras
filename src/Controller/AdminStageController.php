@@ -19,12 +19,16 @@ class AdminStageController extends AbstractController
 
     public function stage(): string
     {
+        $stageManager = new StageManager();
         $errors = [];
         $formData = [];
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $formData = array_map('trim', $_POST);
             $errors = $this->validateFormulary($formData);
+
             if (empty($errors)) {
+                $stageManager->insert($formData);
                 header('location: /adminStage/stage');
             }
         }
