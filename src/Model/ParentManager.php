@@ -19,4 +19,18 @@ class ParentManager extends AbstractManager
         $statement->execute();
         return (int)$this->pdo->lastInsertId();
     }
+
+    public function update(array $parent): int
+    {
+        $query = "UPDATE " . self::TABLE .
+        " SET firstname=:firstname, lastname=:lastname, email=:email, phone_number=:phone_number WHERE id=:id";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('firstname', $parent['parentfirstname'], \PDO::PARAM_STR);
+        $statement->bindValue('lastname', $parent['parentlastname'], \PDO::PARAM_STR);
+        $statement->bindValue('email', $parent['email'], \PDO::PARAM_STR);
+        $statement->bindValue('phone_number', $parent['phone'], \PDO::PARAM_STR);
+        $statement->bindValue('id', $parent['parent_id'], \PDO::PARAM_INT);
+        $statement->execute();
+        return (int)$this->pdo->lastInsertId();
+    }
 }

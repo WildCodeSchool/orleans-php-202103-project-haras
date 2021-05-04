@@ -1,0 +1,22 @@
+<h2 class="col-12 mt-4 pt-4 mb-2 pb-2 text-center tab-title">PLANNING COURS</h2>
+<div class="calendar-courses col-12 d-flex flex-column flex-sm-row justify-content-between text-center">
+    {% for course  in coursesByDay %}
+        <div class="d-flex col-12 col-sm-2 p-0 p-sm-1 mb-2 mb-sm-0">
+            <div class="card rounded-0 d-flex flex-row flex-sm-column col-12">
+                <div class="card-header rounded-0 col-3 d-flex justify-content-center align-items-center col-sm-12">
+                    {{ course.0.dayString | capitalize }}
+                </div>
+                <ul class="list-group list-group-flush d-flex flex-row flex-wrap flex-sm-column col-9 col-sm-12">
+                    {% for key, course_day in course %}
+                        <li class="list-group-item d-flex col-4 col-sm-12 d-flex flex-column justify-content-center align-items-center">
+                            <div class="text-card">
+                                {{ course_day.name | capitalize }}
+                                <span>({{ course_day.time | date('H:i') }})</span><br>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endfor %}
+</div>

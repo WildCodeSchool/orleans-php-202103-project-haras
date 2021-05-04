@@ -10,6 +10,7 @@
                 <th scope="col">Nom d'un parent</th>
                 <th scope="col">Adresse email</th>
                 <th scope="col">Numéro de téléphone</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>  	
@@ -23,6 +24,14 @@
                 <td>{{ pupil.lastname }}</td>
                 <td>{{ pupil.email }}</td>
                 <td>{{ pupil.phone_number }}</td>
+                <td>    
+                    <div class="block-buttons d-flex flex-column">
+                        <a href="/adminCourseInscription/edit/{{ pupil.id }}" class="btn btn-sm btn-secondary mb-1">Editer</a>
+                        <form action="/adminCourseInscription/delete/{{pupil.id}}" method="POST" onSubmit="return confirm('Voulez-vous supprimer ?');">
+                            <button class="btn btn-sm btn-danger mb-1 col-12">Supprimer</button>
+                        </form>
+                    </div>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
