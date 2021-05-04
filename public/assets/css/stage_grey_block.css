@@ -44,3 +44,30 @@
 .button-inscription:hover {
     text-decoration: underline;
 }
+
+.button-stages {
+    display: flex;
+    justify-content: center;
+}
+.btn-inscription {
+    --margin: 3em;
+    --width: 10em;
+    margin-bottom: var(--margin);
+    margin-top: var(--margin);
+    border-radius: var(--width);
+    background-color: var(--secondary-color);
+    height: var(--margin);
+    width: var(--width);
+    color: var(--dark);
+    border: none;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.btn-inscription:hover {
+    text-decoration: underline;
+}
+
