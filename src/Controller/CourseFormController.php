@@ -23,6 +23,8 @@ class CourseFormController extends AbstractController
             if (empty($errors)) {
                 if ($course['experience'] === 'false') {
                     $course['experience'] = 0;
+                } elseif ($course['experience'] === 'true') {
+                    $course['experience'] = 1;
                 }
                 $parentManager = new ParentManager();
                 $course['parent_id'] = $parentManager->insert($course);
