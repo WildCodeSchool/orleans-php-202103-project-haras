@@ -16,4 +16,14 @@ class CoursingManager extends AbstractManager
         $statement->bindValue('pupil_id', $item['pupil_id'], \PDO::PARAM_INT);
         $statement->execute();
     }
+
+    public function update(array $course): void
+    {
+        $query = "UPDATE " . self::TABLE .
+        " SET course_id=:course_id WHERE pupil_id=:id";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('course_id', $course['course'], \PDO::PARAM_INT);
+        $statement->bindValue('id', $course['id'], \PDO::PARAM_INT);
+        $statement->execute();
+    }
 }

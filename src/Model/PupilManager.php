@@ -32,8 +32,11 @@ class PupilManager extends AbstractManager
     public function selectPupilsAndParentsById(int $id): array
     {
         $query = 'SELECT pu.*, pa.firstname AS parent_firstname, pa.lastname AS parent_lastname, pa.email,
-        pa.phone_number FROM ' . static::TABLE . '
-        pu JOIN parent pa ON pu.parent_id = pa.id WHERE pu.id =:id';
+        pa.phone_number, co.id AS course FROM ' . static::TABLE . ' pu
+        JOIN parent pa ON pu.parent_id = pa.id
+        JOIN coursing cou ON cou.pupil_id = pu.id
+        JOIN course co ON co.id = cou.course_id
+        WHERE pu.id = :id';
         $statement = $this->pdo->prepare($query);
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();

@@ -41,8 +41,8 @@
                         Votre enfant est-il déjà monté sur un poney ? :
                     </label>
                     <select name="experience" class="form-control">
-                        <option value="true">Oui</option>
-                        <option value="false">Non</option>
+                        <option value="true" {% if course.experience == '1' %} selected="selected" {% endif %}>Oui</option>
+                        <option value="false" {% if course.experience == '0' %} selected="selected" {% endif %}>Non</option>
                     </select>
                 </div>
                 <div class="mb-3 field">
