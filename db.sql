@@ -37,7 +37,8 @@ CREATE TABLE pupil (
 ALTER TABLE pupil
 ADD CONSTRAINT fk_pupil_parent
 FOREIGN KEY (parent_id)
-REFERENCES parent(id);
+REFERENCES parent(id)
+ON DELETE CASCADE;
 
 CREATE TABLE stage (
   `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -61,19 +62,23 @@ CREATE TABLE staging (
 ALTER TABLE coursing
 ADD CONSTRAINT fk_course_pupil
 FOREIGN KEY (pupil_id)
-REFERENCES pupil(id);
+REFERENCES pupil(id)
+ON DELETE CASCADE;
 
 ALTER TABLE coursing
 ADD CONSTRAINT fk_pupil_course
 FOREIGN KEY (course_id)
-REFERENCES course(id);
+REFERENCES course(id)
+ON DELETE CASCADE;
 
 ALTER TABLE staging
 ADD CONSTRAINT fk_stage_pupil
 FOREIGN KEY (pupil_id)
-REFERENCES pupil(id);
+REFERENCES pupil(id)
+ON DELETE CASCADE;
 
 ALTER TABLE staging
 ADD CONSTRAINT fk_pupil_stage
 FOREIGN KEY (stage_id)
-REFERENCES stage(id);
+REFERENCES stage(id)
+ON DELETE CASCADE;
