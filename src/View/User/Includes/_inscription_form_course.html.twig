@@ -19,7 +19,7 @@
             <span class="fst-italic">champs obligatoires</span>
         </p>
         <div>
-            <form class="form-course" method="POST">
+            <form class="form-course" method="POST" novalidate>
                 <div class="mb-3 field">
                     <label for="firstname" class="form-label">
                         <span class="text-danger">*</span>Prénom de l'enfant :</label>
@@ -54,7 +54,7 @@
                         <option value="">Choisissez votre cours</option>
                         {% for course_select  in courses_select %}
                             {% for course_day in course_select %}
-                                <option value="{{ course_day.id }}">
+                                <option value="{{ course_day.id }}" {% if  course_day.id == course.course %} selected="selected" {% endif %}>
                                     {{ course_day.dayString | capitalize }}
                                     ({{ course_day.time | date('H:i') }})
                                     - {{ course_day.name }}

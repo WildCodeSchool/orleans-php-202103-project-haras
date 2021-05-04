@@ -13,7 +13,7 @@ class AdminCourseInscriptionController extends AbstractController
     public function inscription(): string
     {
         $pupilManager = new PupilManager();
-        $pupils = $pupilManager->selectPupilsAndParents();
+        $pupils = $this->dayString($pupilManager->selectPupilsAndParents());
         return $this->twig->render('Admin/course_inscription.html.twig', [
             'pupils' => $pupils
         ]);
@@ -139,6 +139,16 @@ class AdminCourseInscriptionController extends AbstractController
         ksort($coursesByDay);
 
         return $coursesByDay;
+    }
+
+    private function dayString(array $courses): array
+    {
+        foreach ($courses as $key => $course) {
+            $course['dayString'] = self::DAYS[$course['day']];
+            $courses[$key] = $course;
+        }
+
+        return $courses;
     }
 
     public function delete(int $id): void
