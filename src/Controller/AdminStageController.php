@@ -40,6 +40,15 @@ class AdminStageController extends AbstractController
         ]);
     }
 
+    public function delete(int $id): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $stageManager = new StageManager();
+            $stageManager->delete($id);
+            header('location: /adminStage/stage');
+        }
+    }
+
     /**
      * Test fields if exist, if not empty and test their constraints
      *
