@@ -5,15 +5,14 @@ namespace App\Controller;
 use App\Model\CourseManager;
 use App\Model\ParentManager;
 use App\Model\PupilManager;
+use App\Service\Sort;
 
 class CourseFormController extends AbstractController
 {
-    private const DAYS = [1 => 'Lundi', 2 => 'Mardi', 3 => 'Mercredi', 4 => 'Jeudi', 5 => 'Vendredi', 6 => 'Samedi'];
-
     public function inscription(): string
     {
         $courseManager = new CourseManager();
-        $listingCourses = $this->sortingByDay($courseManager->selectAll());
+        $listingCourses = (new Sort())->sortingCoursesByDay($courseManager->selectAll('time'));
         $errors = [];
         $course = [];
         $thanks = '';
@@ -21,6 +20,9 @@ class CourseFormController extends AbstractController
             $course = array_map('trim', $_POST);
             $errors = $this->validate($course);
             if (empty($errors)) {
+                if ($course['experience'] === 'false') {
+                    $course['experience'] = 0;
+                }
                 $parentManager = new ParentManager();
                 $course['parent_id'] = $parentManager->insert($course);
                 $pupilManager = new PupilManager();
@@ -119,23 +121,5 @@ class CourseFormController extends AbstractController
         }
 
         return $errors;
-    }
-
-    /**
-     * Sorting courses by day.
-     *
-     * @param array $courses
-     * @return array
-     */
-    private function sortingByDay(array $courses): array
-    {
-        $coursesByDay = [];
-        foreach ($courses as $course) {
-            $course['dayString'] = self::DAYS[$course['day']];
-            $coursesByDay[$course['day']][] = $course;
-        }
-        ksort($coursesByDay);
-
-        return $coursesByDay;
     }
 }

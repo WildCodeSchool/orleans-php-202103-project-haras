@@ -139,5 +139,13 @@ class AdminCourseInscriptionController extends AbstractController
         ksort($coursesByDay);
 
         return $coursesByDay;
+
+    public function delete(int $id): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $pupilManager = new PupilManager();
+            $pupilManager->delete($id);
+            header('location: /adminCourseInscription/Inscription');
+        }
     }
 }
