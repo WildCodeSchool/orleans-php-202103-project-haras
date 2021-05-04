@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Model\CourseManager;
 use App\Model\PupilManager;
 use App\Model\ParentManager;
+use App\Model\CoursingManager;
 
 class AdminCourseInscriptionController extends AbstractController
 {
@@ -13,7 +14,7 @@ class AdminCourseInscriptionController extends AbstractController
     public function inscription(): string
     {
         $pupilManager = new PupilManager();
-        $pupils = $pupilManager->selectPupilsAndParents();
+        $pupils = $this->dayString($pupilManager->selectPupilsAndParents());
         return $this->twig->render('Admin/course_inscription.html.twig', [
             'pupils' => $pupils
         ]);
@@ -34,9 +35,16 @@ class AdminCourseInscriptionController extends AbstractController
             $course['id'] = $pupilId;
             $errors = $this->validate($course);
             if (empty($errors)) {
+                if ($course['experience'] === 'false') {
+                    $course['experience'] = 0;
+                } elseif ($course['experience'] === 'true') {
+                    $course['experience'] = 1;
+                }
                 $parentManager = new ParentManager();
                 $parentManager->update($course);
                 $pupilManager->update($course);
+                $coursingManager = new CoursingManager();
+                $coursingManager->update($course);
                 header('location: /adminCourseInscription/Inscription');
             }
         }
@@ -139,6 +147,16 @@ class AdminCourseInscriptionController extends AbstractController
         ksort($coursesByDay);
 
         return $coursesByDay;
+    }
+
+    private function dayString(array $courses): array
+    {
+        foreach ($courses as $key => $course) {
+            $course['dayString'] = self::DAYS[$course['day']];
+            $courses[$key] = $course;
+        }
+
+        return $courses;
     }
 
     public function delete(int $id): void

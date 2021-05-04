@@ -1,0 +1,12 @@
+{% extends 'Admin/layout_admin.html.twig' %}
+{% block navbar %}
+    <header>
+        {% include 'Admin/Includes/_navbar.html.twig' %}
+    </header>
+{% endblock %}
+{% block content %}
+    <main>
+        <h1>Administration: Stages</h1>
+        {% include 'Admin/Includes/_formulary_stage.html.twig' %}
+    </main>
+{% endblock %}
