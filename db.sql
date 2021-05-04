@@ -47,3 +47,13 @@ CREATE TABLE stage (
   `capacity` INT NOT NULL,
   `age` INT NOT NULL
 );
+
+CREATE TABLE coursing (
+  `pupil_id` INT NOT NULL,
+  `course_id` INT NOT NULL
+);
+
+CREATE TABLE staging (
+  `pupil_id` INT NOT NULL,
+  `stage_id` INT NOT NULL
+);
