@@ -1,0 +1,53 @@
+<div class="formulary-course-admin col-md-8 offset-md-2 mt-5">
+    {% if errors %}
+        <ul class="alert alert-danger">
+            {% for error in errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <p class="col-lg-3 offset-lg-9 col-md-4 offset-md-8 col-5 offset-6 mb-0">
+        <span class="text-danger">*</span>
+        <span class="fst-italic">champs obligatoires</span>
+    </p>
+    <form action="" method="POST" class="d-flex flex-column">
+        <div class="form-group mb-3">
+            <label for="name">
+                <span class="text-danger">*</span>
+                Nom du stage
+            </label>
+            <input class="form-control" type="text" name="name" id="name" placeholder="Stage Baby Poney" required value="{{ formulary.name }}" aria-required=" true">
+        </div>
+        <div class="form-group mb-3">
+            <label for="starting_day">
+                <span class="text-danger">*</span>
+                Début du stage
+            </label>
+            <input class="form-control" type="date" name="starting_day" id="starting_day" required value="{{ formulary.starting_day }}" aria-required=" true">
+        </div>
+        <div class="form-group mb-3">
+            <label for="ending_day">
+                <span class="text-danger">*</span>
+                Fin du stage
+            </label>
+            <input class="form-control" type="date" name="ending_day" id="ending_day" required value="{{ formulary.ending_day }}" aria-required=" true">
+        </div>
+        <div class="form-group mb-3">
+            <label for="capacity">
+                <span class="text-danger">*</span>
+                Nombre d'élèves
+            </label>
+            <input class="form-control" type="text" name="capacity" id="capacity" required value="{{ formulary.capacity }}" aria-required="true" aria-describedby="CapacityHelp">
+            <div id="CapacityHelp" class="form-text ps-2">Maximum 20 personnes</div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="age">
+                <span class="text-danger">*</span>
+                age minimum
+            </label>
+            <input class="form-control" type="text" name="age" id="age" required value="{{ formulary.age }}" aria-required="true" aria-describedby="ageHelp">
+            <div id="ageHelp" class="form-text ps-2">Minimum 1 an</div>
+        </div>
+        <button class="btn btn-primary button-formulary" type="submit">{{ button_name }}</button>
+    </form>
+</div>
