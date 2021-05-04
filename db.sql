@@ -47,3 +47,25 @@ CREATE TABLE stage (
   `capacity` INT NOT NULL,
   `age` INT NOT NULL
 );
+
+CREATE TABLE referrers (
+    `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `firstname` VARCHAR(255) NOT NULL,
+    `lastname` VARCHAR(255) NOT NULL,
+    `email` VARCHAR(255) NOT NULL,
+    `phone_number` VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE intern (
+    `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `firstname` VARCHAR(255) NOT NULL,
+    `lastname` VARCHAR(255) NOT NULL,
+    `birthday` DATE NOT NULL,
+    `experience` BOOLEAN NOT NULL,
+    `referrers_id` INT NOT NULL
+);
+
+ALTER TABLE intern
+ADD CONSTRAINT fk_intern_referrers
+FOREIGN KEY (referrers_id)
+REFERENCES referrers(id);
