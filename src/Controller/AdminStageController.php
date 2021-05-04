@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use DateTime;
 use DateTimeZone;
+use App\Model\StageManager;
 
 class AdminStageController extends AbstractController
 {
@@ -32,6 +33,30 @@ class AdminStageController extends AbstractController
             'formulary' => $formData,
             'errors' => $errors,
             'button_name' => 'Enregistrer',
+        ]);
+    }
+
+     public function edit(int $id): string
+    {
+        $errors = [];
+        $stageManager = new StageManager();
+        $stages = $stageManager->selectAll('starting_day');
+        $formData = $stageManager->selectOneById($id);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $formData = array_map('trim', $_POST);
+            $errors = $this->validateFormulary($formData);
+            if (empty($errors)) {
+                $formData['id'] = $id;
+                $stageManager->update($formData);
+                header('location: /adminStage/stage');
+            }
+        }
+
+        return $this->twig->render('Admin/stage.html.twig', [
+            'formulary' => $formData,
+            'errors' => $errors,
+            'button_name' => 'Editer',
+            'stages' => $stages,
         ]);
     }
 
