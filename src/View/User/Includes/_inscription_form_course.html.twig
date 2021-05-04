@@ -41,8 +41,8 @@
                         Votre enfant est-il déjà monté sur un poney ? :
                     </label>
                     <select name="experience" class="form-control">
-                        <option value="true">Oui</option>
-                        <option value="false">Non</option>
+                        <option value="true" {% if course.experience == '1' %} selected="selected" {% endif %}>Oui</option>
+                        <option value="false" {% if course.experience == '0' %} selected="selected" {% endif %}>Non</option>
                     </select>
                 </div>
                 <div class="mb-3 field">
@@ -54,7 +54,7 @@
                         <option value="">Choisissez votre cours</option>
                         {% for course_select  in courses_select %}
                             {% for course_day in course_select %}
-                                <option value="{{ course_day.id }}">
+                                <option value="{{ course_day.id }}" {% if  course_day.id == course.course %} selected="selected" {% endif %}>
                                     {{ course_day.dayString | capitalize }}
                                     ({{ course_day.time | date('H:i') }})
                                     - {{ course_day.name }}
