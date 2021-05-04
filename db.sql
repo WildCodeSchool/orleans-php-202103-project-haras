@@ -57,3 +57,23 @@ CREATE TABLE staging (
   `pupil_id` INT NOT NULL,
   `stage_id` INT NOT NULL
 );
+
+ALTER TABLE coursing
+ADD CONSTRAINT fk_course_pupil
+FOREIGN KEY (pupil_id)
+REFERENCES pupil(id);
+
+ALTER TABLE coursing
+ADD CONSTRAINT fk_pupil_course
+FOREIGN KEY (course_id)
+REFERENCES course(id);
+
+ALTER TABLE staging
+ADD CONSTRAINT fk_stage_pupil
+FOREIGN KEY (pupil_id)
+REFERENCES pupil(id);
+
+ALTER TABLE staging
+ADD CONSTRAINT fk_pupil_stage
+FOREIGN KEY (stage_id)
+REFERENCES stage(id);
