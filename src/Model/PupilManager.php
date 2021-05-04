@@ -16,7 +16,7 @@ class PupilManager extends AbstractManager
         $statement->bindValue('lastname', $item['lastname'], \PDO::PARAM_STR);
         $statement->bindValue('birthday', $item['birthday'], \PDO::PARAM_STR);
         $statement->bindValue('experience', $item['experience'], \PDO::PARAM_BOOL);
-        $statement->bindvalue('parent_id', $item['parent_id'], \PDO::PARAM_INT);
+        $statement->bindValue('parent_id', $item['parent_id'], \PDO::PARAM_INT);
         $statement->execute();
     }
 
@@ -25,5 +25,29 @@ class PupilManager extends AbstractManager
         $query = 'SELECT pu.firstname AS pupil_firstname, pu.lastname AS pupil_lastname, pu.birthday, pu.experience,
         pa.* FROM ' . static::TABLE . ' pu JOIN parent pa ON pu.parent_id = pa.id ORDER BY pu.lastname ASC';
         return $this->pdo->query($query)->fetchAll();
+    }
+
+    public function selectPupilsAndParentsById(int $id): array
+    {
+        $query = 'SELECT pu.*, pa.firstname AS parent_firstname, pa.lastname AS parent_lastname, pa.email,
+        pa.phone_number FROM ' . static::TABLE . '
+        pu JOIN parent pa ON pu.parent_id = pa.id WHERE pu.id =:id';
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetch();
+    }
+
+    public function update(array $pupils): void
+    {
+        $query = "UPDATE " . self::TABLE .
+        " SET firstname=:firstname, lastname=:lastname, birthday=:birthday, experience=:experience WHERE id=:id";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('firstname', $pupils['firstname'], \PDO::PARAM_STR);
+        $statement->bindValue('lastname', $pupils['lastname'], \PDO::PARAM_STR);
+        $statement->bindValue('birthday', $pupils['birthday'], \PDO::PARAM_STR);
+        $statement->bindValue('experience', $pupils['experience'], \PDO::PARAM_BOOL);
+        $statement->bindValue('id', $pupils['id'], \PDO::PARAM_INT);
+        $statement->execute();
     }
 }

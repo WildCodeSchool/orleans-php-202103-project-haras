@@ -39,6 +39,7 @@ class CourseFormController extends AbstractController
             'errors' => $errors,
             'thanks' => $thanks,
             'courses_select' => $listingCourses,
+            'button_name' => 'S\'inscrire',
         ]);
     }
 
