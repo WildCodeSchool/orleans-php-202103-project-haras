@@ -6,6 +6,7 @@
                 <th scope="col">Prénom de l'élève</th>
                 <th scope="col">Date de naissance</th>
                 <th scope="col">Expérience</th>
+                <th scope="col">Cours</th>
                 <th scope="col">Prénom d'un parent</th>
                 <th scope="col">Nom d'un parent</th>
                 <th scope="col">Adresse email</th>
@@ -20,6 +21,7 @@
                 <td>{{ pupil.pupil_firstname }}</td>
                 <td>{{ pupil.birthday }}</td>
                 <td>{% if pupil.experience == true %} Oui {% else %} Non {% endif %}</td>
+                <td>{{ pupil.dayString }} ({{ pupil.time | date('H:i')}})-{{ pupil.name }}
                 <td>{{ pupil.firstname }}</td>
                 <td>{{ pupil.lastname }}</td>
                 <td>{{ pupil.email }}</td>
