@@ -86,9 +86,8 @@ class AdminStageController extends AbstractController
 
     /**
      * Testing if duration is not < self::INPUTS_VALIDATIONS['duration']
-     * @param string $startingDay
-     * @param string $endingDay
-     * @return bool
+     * @param array $formData
+     * @return array
      */
     public function minimalDurationStage(array $formData): array
     {
