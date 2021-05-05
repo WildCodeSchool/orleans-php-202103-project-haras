@@ -9,9 +9,9 @@
                         {% endfor %}
                     </ul>
                 {% elseif errors is empty and data is null %}
-                    <ul class="alert alert-success validated">
+                    <p class="alert alert-success validated">
                         {{ success }}
-                    </ul>
+                    </p>
                 {% endif %}
                 <div class="mb-3">
                     <label for="lastname" class="form-label">
