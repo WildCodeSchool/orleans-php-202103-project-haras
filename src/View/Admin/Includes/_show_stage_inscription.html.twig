@@ -26,6 +26,13 @@
                 <td>{{ pupil.lastname }}</td>
                 <td>{{ pupil.email }}</td>
                 <td>{{ pupil.phone_number }}</td>
+                <td>    
+                    <div class="block-buttons d-flex flex-column">
+                        <form action="/adminStageInscription/delete/{{pupil.id}}" method="POST" onSubmit="return confirm('Voulez-vous supprimer ?');">
+                            <button class="btn btn-sm btn-danger mb-1 col-12">Supprimer</button>
+                        </form>
+                    </div>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
