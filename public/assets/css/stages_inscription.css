@@ -50,3 +50,7 @@
     margin-top: var(--margin);
     border-radius: var(--border-radius);
 }
+
+.alert {
+    list-style: none;
+}

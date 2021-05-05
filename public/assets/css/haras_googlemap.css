@@ -1,10 +1,44 @@
 .haras-googlemap {
+    --padding-values: 76.25%;
     --border: 1px;
     --border-radius: 0.5em;
-    --padding: 0.1em;
+    --position: 0;
+    --full: 100%;
     display: flex;
     justify-content: center;
     border: var(--border) solid var(--primary-color);
     border-radius: var(--border-radius);
-    padding: var(--padding);
+}
+
+.map-responsive {
+    overflow: hidden;
+    padding-bottom: var(--padding-values);
+    position: relative;
+    height: var(--position);
+}
+
+.map-responsive iframe {
+    left: var(--position);
+    top: var(--position);
+    height: var(--full);
+    width: var(--full);
+    position: absolute;
+}
+
+@media screen and (max-height: 800px) {
+    .haras-googlemap {
+        --padding-values: 46.25%;
+    }
+}
+
+@media screen and (max-height: 650px) {
+    .haras-googlemap {
+        --padding-values: 26.25%;
+    }
+}
+
+@media screen and (max-height: 550px) {
+    .map-responsive {
+        display: none;
+    }
 }
