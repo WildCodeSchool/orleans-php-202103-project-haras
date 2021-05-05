@@ -20,7 +20,7 @@
                 <td>{{ stage.age }}</td>
                 <td>
                     <a class="btn btn-sm btn-secondary mb-1 col-8" href="/AdminStage/edit/{{ stage.id }}">Editer</a>
-                        <form action="/adminStage/delete/{{stage.id}}" method="POST" onSubmit="return confirm('Voulez-vous supprimer ?');">
+                    <form action="/adminStage/delete/{{stage.id}}" method="POST" onSubmit="return confirm('Voulez-vous supprimer ?');">
                         <button class="btn btn-sm btn-danger mb-1 col-8">Supprimer</button>
                     </form>
                 </td>
