@@ -20,6 +20,7 @@ class AdminStageController extends AbstractController
     public function stage(): string
     {
         $stageManager = new StageManager();
+        $stages = $stageManager->selectAll('starting_day');
         $errors = [];
         $formData = [];
 
@@ -37,6 +38,7 @@ class AdminStageController extends AbstractController
             'formulary' => $formData,
             'errors' => $errors,
             'button_name' => 'Enregistrer',
+            'stages' => $stages,
         ]);
     }
 
