@@ -101,13 +101,13 @@ body {
 .card-title {
     --font-size: 1.7em;
     font-size: var(--font-size);
-    text-align: right;
+    text-align: center;
 }
 
 .card-text {
     --margin-top: 20px;
     margin-top: var(--margin-top);
-    text-align: right;
+    text-align: center;
 }
 
 .list-group-item {
