@@ -2,25 +2,41 @@
     <div class="grey-block col-xl-7 m-0 col-sm-12">
         <form class="contact-grey-title" method="POST">
             <div class="contact-grey-section">
+                {% if errors %}
+                    <ul class="alert alert-danger error">
+                        {% for error in errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% elseif errors is empty and data is null %}
+                    <p class="alert alert-success validated">
+                        {{ success }}
+                    </p>
+                {% endif %}
                 <div class="mb-3">
-                    <label for="lastname" class="form-label">Nom</label>
-                    <input type="text" class="form-control" id="lastname" name="lastname">
+                    <label for="lastname" class="form-label">
+                        <span class="text-danger">*</span>Nom</label>
+                    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Merlier" aria-required="true">
                 </div>
                 <div class="mb-3">
-                    <label for="firstname" class="form-label">Prenom</label>
-                    <input type="text" class="form-control" id="firstname" name="firstname">
+                    <label for="firstname" class="form-label">
+                        <span class="text-danger">*</span>Prénom</label>
+                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Delphine" aria-required="true">
                 </div>
                 <div class="mb-3">
-                    <label for="phone" class="form-label">Telephone</label>
-                    <input type="text" class="form-control" id="phone" name="phone">
+                    <label for="phone" class="form-label">
+                        <span class="text-danger">*</span>Téléphone</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="06.00.00.00.00." aria-required="true">
                 </div>
                 <div class="mb-3">
-                    <label for="email"class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email">
+                    <label for="email" class="form-label">
+                        <span class="text-danger">*</span>Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="jean.tie@poney.com" aria-required="true">
                 </div>
                 <div class="mb-3">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea class="form-control" id="message" name="textarea" rows="3"></textarea>
+                    <label for="message" class="form-label">
+                        <span class="text-danger">*</span>Message</label>
+                    <textarea class="form-control" id="message" name="message" placeholder="Bonjour, ..." rows="3" aria-required="true"></textarea>
                 </div>
                 <button class="button">Envoyer</button>
             </div>
