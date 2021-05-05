@@ -2,10 +2,17 @@
 
 namespace App\Controller;
 
+use App\Model\StageManager;
+use App\Model\ParentManager;
+use App\Model\PupilManager;
+use App\Model\StagingManager;
+
 class StageFormController extends AbstractController
 {
     public function inscription(): string
     {
+        $stageManager = new StageManager();
+        $stages = $stageManager->selectAll('starting_day');
         $errors = [];
         $stage = [];
         $thanks = '';
@@ -13,7 +20,16 @@ class StageFormController extends AbstractController
             $stage = array_map('trim', $_POST);
             $errors = $this->validate($stage);
             if (empty($errors)) {
-                $thanks = "Merci " . $stage['parent-firstname'] . ", votre demande
+                if ($stage['experience'] === 'false') {
+                    $stage['experience'] = 0;
+                }
+                $parentManager = new ParentManager();
+                $stage['parent_id'] = $parentManager->insert($stage);
+                $pupilManager = new PupilManager();
+                $stage['pupil_id'] = $pupilManager->insert($stage);
+                $stagingManager = new StagingManager();
+                $stagingManager->insert($stage);
+                $thanks = "Merci " . $stage['parentfirstname'] . ", votre demande
                 d'inscription pour " . $stage['firstname'] . " à nos stages d'équitation
                 a été prise en compte, nous vous recontacterons dès que possible.";
                 $stage = null;
@@ -24,6 +40,8 @@ class StageFormController extends AbstractController
             'stage' => $stage,
             'errors' => $errors,
             'thanks' => $thanks,
+            'stages' => $stages,
+            'button_name' => 'S\'inscrire',
         ]);
     }
 
@@ -84,11 +102,11 @@ class StageFormController extends AbstractController
     {
         $errors = [];
 
-        if (empty($stage['parent-firstname'])) {
+        if (empty($stage['parentfirstname'])) {
             $errors[] = 'Le prénom d\'un parent est requis';
         }
 
-        if (empty($stage['parent-lastname'])) {
+        if (empty($stage['parentlastname'])) {
             $errors[] = 'Le nom d\'un parent est requis';
         }
 
