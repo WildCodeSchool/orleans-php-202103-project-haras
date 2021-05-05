@@ -24,7 +24,7 @@ class AdminCourseInscriptionController extends AbstractController
     {
         $courseManager = new CourseManager();
         $pupilManager = new PupilManager();
-        $course = $pupilManager->selectPupilsAndParentsById($id);
+        $course = $pupilManager->selectPupilsCourseById($id);
         $parentId = $course['parent_id'];
         $pupilId = $course['id'];
         $listingCourses = $this->sortingByDay($courseManager->selectAll());

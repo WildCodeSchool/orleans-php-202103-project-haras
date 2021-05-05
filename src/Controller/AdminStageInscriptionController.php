@@ -22,7 +22,7 @@ class AdminStageInscriptionController extends AbstractController
         $stageManager = new StageManager();
         $stages = $stageManager->selectAll('starting_day');
         $pupilManager = new PupilManager();
-        $stage = $pupilManager->selectPupilsAndParentsById($id);
+        $stage = $pupilManager->selectPupilsStageById($id);
         $parentId = $stage['parent_id'];
         $pupilId = $stage['id'];
         $errors = [];
