@@ -126,7 +126,7 @@ class AdminStageInscriptionController extends AbstractController
 
         return $errors;
     }
-        
+
     public function delete(int $id): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
