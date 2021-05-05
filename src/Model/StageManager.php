@@ -19,7 +19,7 @@ class StageManager extends AbstractManager
         $statement->bindValue('age', $item['age'], \PDO::PARAM_INT);
         $statement->execute();
     }
-  
+
     public function update(array $stage): void
     {
         $query = "UPDATE " . self::TABLE .
