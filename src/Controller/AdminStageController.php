@@ -20,6 +20,7 @@ class AdminStageController extends AbstractController
     public function stage(): string
     {
         $stageManager = new StageManager();
+        $stages = $stageManager->selectAll('starting_day');
         $errors = [];
         $formData = [];
 
@@ -37,6 +38,31 @@ class AdminStageController extends AbstractController
             'formulary' => $formData,
             'errors' => $errors,
             'button_name' => 'Enregistrer',
+            'stages' => $stages,
+        ]);
+    }
+
+    public function edit(int $id): string
+    {
+        $errors = [];
+        $stageManager = new StageManager();
+        $stages = $stageManager->selectAll('starting_day');
+        $formData = $stageManager->selectOneById($id);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $formData = array_map('trim', $_POST);
+            $errors = $this->validateFormulary($formData);
+            if (empty($errors)) {
+                $formData['id'] = $id;
+                $stageManager->update($formData);
+                header('location: /adminStage/stage');
+            }
+        }
+
+        return $this->twig->render('Admin/stage.html.twig', [
+            'formulary' => $formData,
+            'errors' => $errors,
+            'button_name' => 'Editer',
+            'stages' => $stages,
         ]);
     }
 
