@@ -14,6 +14,12 @@
 .calendar-courses .list-group-item {
     --height-box: 60px;
     height: var(--height-box);
+    transition: transform .5s ease-in-out;
+}
+
+.calendar-courses .list-group-item:hover {
+    transform: scale(1.2, 1.2);
+    font-size: 1.2em;
 }
 
 @media (min-width: 1000px) {
