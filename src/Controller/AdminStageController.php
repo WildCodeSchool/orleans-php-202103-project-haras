@@ -62,6 +62,7 @@ class AdminStageController extends AbstractController
             'button_name' => 'Editer',
             'stages' => $stages,
         ]);
+    }
 
     public function delete(int $id): void
     {
