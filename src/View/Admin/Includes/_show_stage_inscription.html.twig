@@ -26,6 +26,11 @@
                 <td>{{ pupil.lastname }}</td>
                 <td>{{ pupil.email }}</td>
                 <td>{{ pupil.phone_number }}</td>
+                <td>
+                    <div class="block-buttons d-flex flex-column">
+                        <a href="/adminStageInscription/edit/{{ pupil.id }}" class="btn btn-sm btn-secondary mb-1">Editer</a>
+                    </div>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
