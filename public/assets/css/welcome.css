@@ -45,7 +45,7 @@ body {
 }
 
 .principal h1 {
-    --margin-bottom: 20px;
+    --margin-bottom: 40px;
     font-size: var(--font-size-welcome);
     margin-bottom: var(--margin-bottom);
 }
@@ -146,5 +146,12 @@ body {
     .principal h1{
         --font-size: 35xp;
         font-size: var(--font-size);
+    }
+}
+
+@media screen and (max-width: 768px ) {
+    .principal h1{
+        font-size: 40px;
+        
     }
 }
