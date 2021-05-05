@@ -5,9 +5,7 @@
                 <th scope="col">Nom du stage</th>
                 <th scope="col">Date de début</th>
                 <th scope="col">Date fin</th>
-                <th scope="col">Nombre d'élèves</th>
                 <th scope="col">Age minimun</th>
-                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -16,14 +14,7 @@
                     <td>{{ stage.name | capitalize }}</td>
                     <td>{{ stage.starting_day | date('d/m/Y') }}</td>
                     <td>{{ stage.ending_day | date('d/m/Y') }}</td>
-                    <td>{{ stage.capacity }}</td>
                     <td>{{ stage.age }} an(s)</td>
-                    <td>
-                        <a class="btn btn-sm btn-secondary mb-1 col-8" href="/AdminStage/edit/{{ stage.id }}">Editer</a>
-                        <form action="/adminStage/delete/{{stage.id}}" method="POST" onSubmit="return confirm('Voulez-vous supprimer ?');">
-                            <button class="btn btn-sm btn-danger mb-1 col-8">Supprimer</button>
-                        </form>
-                    </td>
                 </tr>
             {% endfor %}
         </tbody>
