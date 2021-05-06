@@ -18,6 +18,7 @@
     margin-bottom: var(--margin-bottom);
     font-weight: bold;
     font-size: var(--font-size);
+    color: var(--secondary-color);
 }
   
 .footer-dark ul {

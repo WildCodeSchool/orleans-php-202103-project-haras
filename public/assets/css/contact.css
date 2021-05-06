@@ -1,6 +1,13 @@
 @import 'contact_googlemap.css';
 @import 'contact_white_block.css';
 @import 'contact_grey_block.css';
+
+.content-page {
+    --margin-top: -50px;
+    z-index: 1;
+    margin-top: var(--margin-top);
+}
+
 @media (min-width: 1000px) {
     .content-page {
         --width: 95%;
@@ -12,21 +19,26 @@
         padding-bottom: var(--padding-bottom);
         min-height: var(--min-height);
     }
-    
+
     .left-page {
         --width: 100vw;
-        --min-height: 70vh;
+        --min-height: 60vh;
         display: flex;
         justify-content: flex-end;
         width: var(--width);
         min-height: var(--min-height);
     }
-    
+
     .right-page {
         --width: 60vw;
-        --min-height: 100vh;
         display: flex;
-        width: var(--width);
         min-height: var(--min-height);
+        width: var(--width);
+    }
+}
+
+@media screen and (max-width: 768px){
+    .content-page {
+        --margin-top: 0;
     }
 }
