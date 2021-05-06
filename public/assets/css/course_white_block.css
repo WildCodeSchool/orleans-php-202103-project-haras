@@ -25,6 +25,4 @@
     --margin: 10px;
     padding-top: var(--padding-top);
     margin: var(--margin);
-    display: flex;
-    flex-wrap: wrap;
 }

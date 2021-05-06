@@ -18,8 +18,6 @@
 }
 
 .white-block-text {
-    display: flex;
-    flex-wrap: wrap;
     padding: 20px;
 }
 

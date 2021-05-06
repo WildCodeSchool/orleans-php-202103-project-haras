@@ -23,8 +23,6 @@
 .white-block-text {
     --padding-top: 20px;
     --margin: 10px;
-    display: flex;
-    flex-wrap: wrap;
     padding-top: var(--padding-top);
     margin: var(--margin)
 }
