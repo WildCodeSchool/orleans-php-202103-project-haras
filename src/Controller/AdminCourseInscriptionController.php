@@ -49,7 +49,7 @@ class AdminCourseInscriptionController extends AbstractController
             }
         }
 
-        return $this->twig->render('User/course_form.html.twig', [
+        return $this->twig->render('Admin/course_form.html.twig', [
             'course' => $course,
             'errors' => $errors,
             'courses_select' => $listingCourses,
