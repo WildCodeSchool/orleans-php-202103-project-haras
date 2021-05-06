@@ -40,7 +40,7 @@ class AdminStageInscriptionController extends AbstractController
             }
         }
 
-        return $this->twig->render('User/stages_form_inscription.html.twig', [
+        return $this->twig->render('Admin/stages_form_inscription.html.twig', [
             'stage' => $stage,
             'stages' => $stages,
             'errors' => $errors,
