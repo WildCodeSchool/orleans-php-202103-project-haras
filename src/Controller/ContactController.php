@@ -49,10 +49,7 @@ class ContactController extends AbstractController
     {
         $errors = [];
         if (strlen($data['message']) > self::TEXTLENGTH) {
-            $errors[] = 'Le message doit faire moins de' . self::TEXTLENGTH . 'caractères';
-        }
-        if (strlen($data['phone']) > self::PHONELENGTH) {
-            $errors[] = 'Le numero de telephone doit faire moins de' . self::PHONELENGTH . 'caractères';
+            $errors[] = 'Le message doit faire moins de ' . self::TEXTLENGTH . ' caractères';
         }
         if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
             $errors[] = 'Mauvais format d\'email';
