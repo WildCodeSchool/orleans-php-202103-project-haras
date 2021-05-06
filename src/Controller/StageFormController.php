@@ -20,10 +20,12 @@ class StageFormController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stage = array_map('trim', $_POST);
             $errors = $this->validate($stage, $stageManager);
+            if ($stage['experience'] === 'false') {
+                $stage['experience'] = 0;
+            } elseif ($stage['experience'] === 'true') {
+                $stage['experience'] = 1;
+            }
             if (empty($errors)) {
-                if ($stage['experience'] === 'false') {
-                    $stage['experience'] = 0;
-                }
                 $parentManager = new ParentManager();
                 $stage['parent_id'] = $parentManager->insert($stage);
                 $pupilManager = new PupilManager();

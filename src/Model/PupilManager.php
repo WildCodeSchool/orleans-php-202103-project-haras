@@ -41,8 +41,8 @@ class PupilManager extends AbstractManager
 
     public function selectPupilsStageById(int $id): array
     {
-        $query = 'SELECT pu.*, pa.firstname AS parent_firstname, pa.lastname AS parent_lastname, pa.email,
-        pa.phone_number, st.id AS stage FROM ' . static::TABLE . '
+        $query = 'SELECT pu.*, pa.firstname AS parentfirstname, pa.lastname AS parentlastname, pa.email,
+        pa.phone_number AS phone, st.id AS stage FROM ' . static::TABLE . '
         pu JOIN parent pa ON pu.parent_id = pa.id
         JOIN staging sta ON sta.pupil_id = pu.id
         JOIN stage st ON st.id = sta.stage_id
@@ -55,8 +55,8 @@ class PupilManager extends AbstractManager
 
     public function selectPupilsCourseById(int $id): array
     {
-        $query = 'SELECT pu.*, pa.firstname AS parent_firstname, pa.lastname AS parent_lastname, pa.email,
-        pa.phone_number, co.id AS course FROM ' . static::TABLE . '
+        $query = 'SELECT pu.*, pa.firstname AS parentfirstname, pa.lastname AS parentlastname, pa.email,
+        pa.phone_number AS phone, co.id AS course FROM ' . static::TABLE . '
         pu JOIN parent pa ON pu.parent_id = pa.id
         JOIN coursing cou ON cou.pupil_id = pu.id
         JOIN course co ON co.id = cou.course_id

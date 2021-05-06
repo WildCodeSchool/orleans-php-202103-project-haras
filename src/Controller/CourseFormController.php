@@ -21,12 +21,12 @@ class CourseFormController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $course = array_map('trim', $_POST);
             $errors = $this->validate($course, $courseManager);
+            if ($course['experience'] === 'false') {
+                $course['experience'] = 0;
+            } elseif ($course['experience'] === 'true') {
+                $course['experience'] = 1;
+            }
             if (empty($errors)) {
-                if ($course['experience'] === 'false') {
-                    $course['experience'] = 0;
-                } elseif ($course['experience'] === 'true') {
-                    $course['experience'] = 1;
-                }
                 $parentManager = new ParentManager();
                 $course['parent_id'] = $parentManager->insert($course);
                 $pupilManager = new PupilManager();
