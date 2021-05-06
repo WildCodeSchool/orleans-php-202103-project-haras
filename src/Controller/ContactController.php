@@ -4,7 +4,8 @@ namespace App\Controller;
 
 class ContactController extends AbstractController
 {
-    private const LENGHT = 255;
+    private const NAMELENGTH = 20;
+    private const TEXTLENGTH = 1020;
     public function contact(): string
     {
         $message = '';
@@ -47,14 +48,16 @@ class ContactController extends AbstractController
     private function validate(array $data): array
     {
         $errors = [];
-        if (strlen($data['message']) > self::LENGHT) {
-            $errors[] = 'Le message doit faire moins de 255 caractères';
+        if (strlen($data['firstname']) > self::NAMELENGTH) {
+            $errors[] = 'Le prénom doit faire moins de ' . self::NAMELENGTH . ' caractères';
         }
-        if (strlen($data['phone']) > self::LENGHT) {
-            $errors[] = 'Le numero de telephone doit faire moins de 12 caractères';
+        $errors = [];
+        if (strlen($data['lastname']) > self::NAMELENGTH) {
+            $errors[] = 'Le nom doit faire moins de ' . self::NAMELENGTH . ' caractères';
         }
-        if (strlen($data['lastname']) > self::LENGHT) {
-            $errors[] = 'Le nom doit faire moins de 255 caractères';
+        $errors = [];
+        if (strlen($data['message']) > self::TEXTLENGTH) {
+            $errors[] = 'Le message doit faire moins de ' . self::TEXTLENGTH . ' caractères';
         }
         if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
             $errors[] = 'Mauvais format d\'email';
