@@ -12,7 +12,7 @@ class MinimumAge
         $errors = [];
         $today = new DateTime('', new DateTimeZone('Europe/Paris'));
         $birthday = new DateTime($date, new DateTimeZone('Europe/Paris'));
-        if ($birthday->diff($today)->y < $courseAge) {
+        if ($birthday->diff($today)->y < $courseAge || intval($birthday->format('Y')) >= intval($today->format('Y'))) {
             $errors[] = 'L\'âge de l\'enfant est inférieur à l\'âge minimum.';
         }
         return $errors;
