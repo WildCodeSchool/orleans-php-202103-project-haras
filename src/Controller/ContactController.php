@@ -5,7 +5,7 @@ namespace App\Controller;
 class ContactController extends AbstractController
 {
     private const TEXTLENGTH = 1020;
-    private const PHONELENGTH =12;
+    private const PHONELENGTH = 12;
     public function contact(): string
     {
         $message = '';
