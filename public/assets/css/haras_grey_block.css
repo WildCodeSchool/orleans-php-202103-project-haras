@@ -21,4 +21,11 @@
 .haras-grey-text {
     display: flex;
     flex-wrap: wrap;
+    padding: 20px;
+}
+
+.grey-block {
+    list-style: '★';
+    padding: 10px;
+    align-self: center;
 }

@@ -1,6 +1,11 @@
 @import 'stage_grey_block.css';
 @import 'stage_white_block.css';
 
+.content-page {
+    z-index: 1;
+    margin-top: -50px;
+}
+
 @media (min-width: 1000px) {
     .content-page {
         --width: 95%;
@@ -27,5 +32,14 @@
         display: flex;
         min-height: var(--min-height);
         width: var(--width);
+    }
+
+    .tab-title {
+        --margin-top: 0.8em;
+        --font-size: 1.2em;
+        margin-top: var(--margin-top);
+        font-size: var(--font-size);
+        font-weight: bold;
+        text-align: center;
     }
 }

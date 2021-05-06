@@ -16,9 +16,18 @@
 }
 
 body {
-    background-color: var(--smoke-light);
+    background-color: #f5f5f5;
+    background-image: url("https://transparenttextures.com/patterns/brushed-alum.png");
 }
 
 h1 {
     font-family: var(--title-font);
+}
+
+h2 {
+    color: var(--primary-color)
+}
+
+span {
+    color: var(--primary-color);
 }

@@ -11,7 +11,7 @@
     min-height: var(--min-height);
 }
 
-.white-block-title {
+.tab-title {
     --margin-top: 0.8em;
     --font-size: 1.2em;
     margin-top: var(--margin-top);
@@ -23,8 +23,6 @@
 .white-block-text {
     --padding-top: 20px;
     --margin: 10px;
-    display: flex;
-    flex-wrap: wrap;
     padding-top: var(--padding-top);
     margin: var(--margin)
 }
