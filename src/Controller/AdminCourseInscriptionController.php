@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
-use App\Model\CourseManager;
 use App\Model\PupilManager;
+use App\Service\MinimumAge;
+use App\Model\CourseManager;
 use App\Model\ParentManager;
 use App\Model\CoursingManager;
 
@@ -33,13 +34,13 @@ class AdminCourseInscriptionController extends AbstractController
             $course = array_map('trim', $_POST);
             $course['parent_id'] = $parentId;
             $course['id'] = $pupilId;
-            $errors = $this->validate($course);
+            $errors = $this->validate($course, $courseManager);
+            if ($course['experience'] === 'false') {
+                $course['experience'] = 0;
+            } elseif ($course['experience'] === 'true') {
+                $course['experience'] = 1;
+            }
             if (empty($errors)) {
-                if ($course['experience'] === 'false') {
-                    $course['experience'] = 0;
-                } elseif ($course['experience'] === 'true') {
-                    $course['experience'] = 1;
-                }
                 $parentManager = new ParentManager();
                 $parentManager->update($course);
                 $pupilManager->update($course);
@@ -49,7 +50,7 @@ class AdminCourseInscriptionController extends AbstractController
             }
         }
 
-        return $this->twig->render('User/course_form.html.twig', [
+        return $this->twig->render('Admin/course_form.html.twig', [
             'course' => $course,
             'errors' => $errors,
             'courses_select' => $listingCourses,
@@ -59,10 +60,13 @@ class AdminCourseInscriptionController extends AbstractController
 
     public const MAX_FIELD_LENGTH = 255;
 
-    private function validate(array $course): array
+    private function validate(array $course, CourseManager $courseManager): array
     {
         $errors = [];
         $errors = array_merge($errors, $this->isEmpty($course), $this->isStillEmpty($course));
+        $testAge = new MinimumAge();
+        $testAge = $testAge->isSmaller($course['birthday'], $courseManager->selectOneById($course['course'])['age']);
+        $errors = $errors = array_merge($errors, $testAge);
 
         if (!empty($course['firstname']) && strlen($course['firstname']) > self::MAX_FIELD_LENGTH) {
             $errors[] = 'Le prénom de l\'enfant doit faire moins de ' . self::MAX_FIELD_LENGTH . ' caractères';

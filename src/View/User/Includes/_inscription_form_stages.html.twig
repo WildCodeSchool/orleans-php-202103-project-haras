@@ -1,7 +1,7 @@
 {% block stages_form_inscription %}
     <div class="form col-xl-6 offset-xl-3">
         <div class="form-title">
-            <h1>Inscription aux Stages</h1>
+            <h1>Formulaire d'inscription aux stages</h1>
         </div>
         <div>
             {% if errors %}
@@ -15,7 +15,7 @@
                     <li>{{ thanks }}</li>
                 </ul>
             {% endif %}
-                <form class="form-stages" method="POST" novalidate>
+                <form class="form-stages" method="POST">
                     <div class="mb-3 field">
                         <label for="firstname" class="form-label">
                             <span class="text-danger">*</span>Prénom de l'enfant :</label>
@@ -56,13 +56,13 @@
                         <label for="parentfirstname" class="form-label">
                             <span class="text-danger">*</span> Prénom du parent :
                         </label>
-                        <input type="text" class="form-control" id="parentfirstname" name="parentfirstname" placeholder="Laurie" required value="{{ stage.parent_firstname }}" aria-required="true">
+                        <input type="text" class="form-control" id="parentfirstname" name="parentfirstname" placeholder="Laurie" required value="{{ stage.parentfirstname }}" aria-required="true">
                     </div>
                     <div class="mb-3 field">
                         <label for="parentlastname" class="form-label">
                             <span class="text-danger">*</span> Nom du parent :
                         </label>
-                        <input type="text" class="form-control" id="parentlastname" name="parentlastname" placeholder="Merlier" required value="{{ stage.parent_lastname }}" aria-required="true">
+                        <input type="text" class="form-control" id="parentlastname" name="parentlastname" placeholder="Merlier" required value="{{ stage.parentlastname }}" aria-required="true">
                     </div>
                     <div class="mb-3 field">
                         <label for="email" class="form-label">
@@ -74,7 +74,7 @@
                         <label for="phone" class="form-label">
                             <span class="text-danger">*</span> Téléphone :
                         </label>
-                        <input type="text" class="form-control" id="phone" name="phone" placeholder="06.00.00.00.00" required value="{{ stage.phone_number }}" aria-required="true">
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="06.00.00.00.00" required value="{{ stage.phone }}" aria-required="true">
                     </div>
                     <button class="inscription-button">{{ button_name }}</button>
                 </form>

@@ -1,7 +1,7 @@
 @import 'course_tab.css';
 @import 'course_white_block.css';
 .calendar-courses .card {
-    --font-size: 0.6em;
+    --font-size: 0.7em;
     --width-card: 100%;
     font-size: var(--font-size);
     width: var(--width-card);
@@ -14,6 +14,12 @@
 .calendar-courses .list-group-item {
     --height-box: 60px;
     height: var(--height-box);
+    transition: transform .3s ease-in-out;
+}
+
+.calendar-courses .list-group-item:hover {
+    transform: scale(1.3, 1.3);
+    font-size: calc(var(--font-size) * 1.5);
 }
 
 @media (min-width: 1000px) {
