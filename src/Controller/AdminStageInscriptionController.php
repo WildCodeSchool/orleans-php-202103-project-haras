@@ -32,6 +32,11 @@ class AdminStageInscriptionController extends AbstractController
             $stage['parent_id'] = $parentId;
             $stage['id'] = $pupilId;
             $errors = $this->validate($stage, $stageManager);
+            if ($stage['experience'] === 'false') {
+                $stage['experience'] = 0;
+            } elseif ($stage['experience'] === 'true') {
+                $stage['experience'] = 1;
+            }
             if (empty($errors)) {
                 $parentManager = new ParentManager();
                 $parentManager->update($stage);

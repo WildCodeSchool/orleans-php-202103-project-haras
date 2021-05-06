@@ -35,12 +35,12 @@ class AdminCourseInscriptionController extends AbstractController
             $course['parent_id'] = $parentId;
             $course['id'] = $pupilId;
             $errors = $this->validate($course, $courseManager);
+            if ($course['experience'] === 'false') {
+                $course['experience'] = 0;
+            } elseif ($course['experience'] === 'true') {
+                $course['experience'] = 1;
+            }
             if (empty($errors)) {
-                if ($course['experience'] === 'false') {
-                    $course['experience'] = 0;
-                } elseif ($course['experience'] === 'true') {
-                    $course['experience'] = 1;
-                }
                 $parentManager = new ParentManager();
                 $parentManager->update($course);
                 $pupilManager->update($course);
