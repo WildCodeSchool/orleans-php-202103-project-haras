@@ -28,4 +28,13 @@
         min-height: var(--min-height);
         width: var(--width);
     }
+
+    .tab-title {
+        --margin-top: 0.8em;
+        --font-size: 1.2em;
+        margin-top: var(--margin-top);
+        font-size: var(--font-size);
+        font-weight: bold;
+        text-align: center;
+    }
 }
