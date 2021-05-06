@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
-use App\Model\StageManager;
 use App\Model\PupilManager;
+use App\Model\StageManager;
+use App\Service\MinimumAge;
 use App\Model\ParentManager;
 
 class AdminStageInscriptionController extends AbstractController
@@ -30,7 +31,7 @@ class AdminStageInscriptionController extends AbstractController
             $stage = array_map('trim', $_POST);
             $stage['parent_id'] = $parentId;
             $stage['id'] = $pupilId;
-            $errors = $this->validate($stage);
+            $errors = $this->validate($stage, $stageManager);
             if (empty($errors)) {
                 $parentManager = new ParentManager();
                 $parentManager->update($stage);
@@ -49,10 +50,13 @@ class AdminStageInscriptionController extends AbstractController
 
     public const MAX_FIELD_LENGTH = 255;
 
-    private function validate(array $stage): array
+    private function validate(array $stage, StageManager $stageManager): array
     {
         $errors = [];
         $errors = array_merge($errors, $this->isEmpty($stage), $this->isStillEmpty($stage));
+        $testAge = new MinimumAge();
+        $testAge = $testAge->isSmaller($stage['birthday'], $stageManager->selectOneById($stage['stage'])['age']);
+        $errors = $errors = array_merge($errors, $testAge);
 
         if (!empty($stage['firstname']) && strlen($stage['firstname']) > self::MAX_FIELD_LENGTH) {
             $errors[] = 'Le prénom de l\'enfant doit faire moins de ' . self::MAX_FIELD_LENGTH . ' caractères';
