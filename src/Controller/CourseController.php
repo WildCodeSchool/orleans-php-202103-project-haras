@@ -7,7 +7,7 @@ use App\Service\Sort;
 
 class CourseController extends AbstractController
 {
-    public function course()
+    public function course(): string
     {
         $courseManager = new CourseManager();
         $imagesCarousel = ['faceharas.jpg', 'poneycarousel.jpg', 'prairieharas.jpg'];

@@ -23,8 +23,8 @@ class StageManager extends AbstractManager
     public function update(array $stage): void
     {
         $query = "UPDATE " . self::TABLE .
-            " SET name=:name, starting_day=:starting_day, ending_day=:ending_day,
-            capacity=:capacity, age=:age WHERE id=:id";
+        " SET name=:name, starting_day=:starting_day, ending_day=:ending_day,
+        capacity=:capacity, age=:age WHERE id=:id";
         $statement = $this->pdo->prepare($query);
         $statement->bindValue('name', $stage['name'], \PDO::PARAM_STR);
         $statement->bindValue('starting_day', $stage['starting_day'], \PDO::PARAM_STR);

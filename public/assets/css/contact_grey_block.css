@@ -6,9 +6,8 @@
     padding: var(--padding-section);
     background-color: var(--grey);
     flex-direction: column;
-    flex-wrap: wrap;
     font-family: var(--text-font);
-    height: var(--height);
+    min-height: var(--height);
 }
 
 .contact-grey-title {
@@ -38,4 +37,18 @@
 
 .button:hover {
     color: var(--secondary-color);
+}
+
+.validated {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.error {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    list-style: none;
 }
