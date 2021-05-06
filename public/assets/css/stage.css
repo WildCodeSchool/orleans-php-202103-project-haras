@@ -1,6 +1,11 @@
 @import 'stage_grey_block.css';
 @import 'stage_white_block.css';
 
+.content-page {
+    z-index: 1;
+    margin-top: -50px;
+}
+
 @media (min-width: 1000px) {
     .content-page {
         --width: 95%;

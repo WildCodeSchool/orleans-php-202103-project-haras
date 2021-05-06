@@ -10,7 +10,7 @@
 }
 
 .white-block-title {
-    --margin-top: 0.8em;
+    --margin-top: 3em;
     --font-size: 1.2em;
     margin-top: var(--margin-top);
     font-size: var(--font-size);
@@ -21,4 +21,5 @@
 .white-block-text {
     display: flex;
     flex-wrap: wrap;
+    padding: 30px;
 }

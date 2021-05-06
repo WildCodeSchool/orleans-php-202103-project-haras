@@ -1,13 +1,11 @@
 .contact-grey-section {
     --padding-section: 2em;
-    --height: 100vh;
     display: flex;
     justify-content: flex-start;
     padding: var(--padding-section);
     background-color: var(--grey);
     flex-direction: column;
     font-family: var(--text-font);
-    min-height: var(--height);
 }
 
 .contact-grey-title {
@@ -15,8 +13,8 @@
     --font-size: 1.2em;
     margin-top: var(--margin-top);
     font-size: var(--font-size);
-    font-weight: bold;
     text-align: center;
+    font-weight: bold;
 }
 
 .button {

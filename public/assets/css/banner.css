@@ -1,9 +1,10 @@
 .banner {
-    --heigt-banner: 150px;
+    --heigt-banner: 25vh;
     display: flex;
     height: var(--heigt-banner);
     position: relative;
     justify-content: center;
+    z-index:-1;
 }
 
 .img-banner {
@@ -17,7 +18,7 @@
 
 .banner h1 {
     --top-title-banner: 40px;
-    --shadow-h1: 1px 1px 1px black;
+    --shadow-h1: 0.5px 0.5px 0.5px rgb(37, 36, 36);
     z-index: 1;
     margin-top: var(--top-title-banner);
     text-shadow: var(--shadow-h1);
