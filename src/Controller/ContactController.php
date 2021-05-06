@@ -4,8 +4,8 @@ namespace App\Controller;
 
 class ContactController extends AbstractController
 {
+    private const NAMELENGTH = 20;
     private const TEXTLENGTH = 1020;
-    private const PHONELENGTH = 12;
     public function contact(): string
     {
         $message = '';
@@ -47,6 +47,14 @@ class ContactController extends AbstractController
     }
     private function validate(array $data): array
     {
+        $errors = [];
+        if (strlen($data['firstname']) > self::NAMELENGTH) {
+            $errors[] = 'Le prénom doit faire moins de ' . self::NAMELENGTH . ' caractères';
+        }
+        $errors = [];
+        if (strlen($data['lastname']) > self::NAMELENGTH) {
+            $errors[] = 'Le nom doit faire moins de ' . self::NAMELENGTH . ' caractères';
+        }
         $errors = [];
         if (strlen($data['message']) > self::TEXTLENGTH) {
             $errors[] = 'Le message doit faire moins de ' . self::TEXTLENGTH . ' caractères';
