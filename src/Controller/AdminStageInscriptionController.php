@@ -54,8 +54,8 @@ class AdminStageInscriptionController extends AbstractController
     {
         $errors = [];
         $errors = array_merge($errors, $this->isEmpty($stage), $this->isStillEmpty($stage));
-        $testAge = (new MinimumAge())
-        ->isSmaller($stage['birthday'], $stageManager->selectOneById($stage['stage'])['age']);
+        $testAge = new MinimumAge();
+        $testAge = $testAge->isSmaller($stage['birthday'], $stageManager->selectOneById($stage['stage'])['age']);
         $errors = $errors = array_merge($errors, $testAge);
 
         if (!empty($stage['firstname']) && strlen($stage['firstname']) > self::MAX_FIELD_LENGTH) {

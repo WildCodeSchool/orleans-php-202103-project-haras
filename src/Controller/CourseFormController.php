@@ -55,7 +55,8 @@ class CourseFormController extends AbstractController
     {
         $errors = [];
         $errors = array_merge($errors, $this->isEmpty($course), $this->isStillEmpty($course));
-        $testAge = (new MinimumAge())->isSmaller($course['birthday'], $courseManager->selectOneById($course['course'])['age']);
+        $testAge = new MinimumAge();
+        $testAge = $testAge->isSmaller($course['birthday'], $courseManager->selectOneById($course['course'])['age']);
         $errors = $errors = array_merge($errors, $testAge);
 
         if (!empty($course['firstname']) && strlen($course['firstname']) > self::MAX_FIELD_LENGTH) {
