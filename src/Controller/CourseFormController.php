@@ -6,6 +6,7 @@ use App\Model\CourseManager;
 use App\Model\ParentManager;
 use App\Model\PupilManager;
 use App\Model\CoursingManager;
+use App\Service\MinimumAge;
 use App\Service\Sort;
 
 class CourseFormController extends AbstractController
@@ -19,7 +20,7 @@ class CourseFormController extends AbstractController
         $thanks = '';
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $course = array_map('trim', $_POST);
-            $errors = $this->validate($course);
+            $errors = $this->validate($course, $courseManager);
             if (empty($errors)) {
                 if ($course['experience'] === 'false') {
                     $course['experience'] = 0;
@@ -50,10 +51,12 @@ class CourseFormController extends AbstractController
 
     public const MAX_FIELD_LENGTH = 255;
 
-    private function validate(array $course): array
+    private function validate(array $course, CourseManager $courseManager): array
     {
         $errors = [];
         $errors = array_merge($errors, $this->isEmpty($course), $this->isStillEmpty($course));
+        $testAge = (new MinimumAge())->isSmaller($course['birthday'], $courseManager->selectOneById($course['course'])['age']);
+        $errors = $errors = array_merge($errors, $testAge);
 
         if (!empty($course['firstname']) && strlen($course['firstname']) > self::MAX_FIELD_LENGTH) {
             $errors[] = 'Le prénom de l\'enfant doit faire moins de ' . self::MAX_FIELD_LENGTH . ' caractères';
