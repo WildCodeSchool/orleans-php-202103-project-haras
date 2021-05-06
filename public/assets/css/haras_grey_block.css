@@ -24,7 +24,7 @@
     padding: 20px;
 }
 
-li {
+.grey-block {
     list-style: '★';
     padding: 10px;
     align-self: center;
