@@ -43,6 +43,7 @@
 
 .button-inscription:hover {
     text-decoration: underline;
+    color: var(--dark);
 }
 
 .button-stages {
@@ -50,7 +51,7 @@
     justify-content: center;
 }
 
-.btn-inscription {
+.button-inscription {
     --margin: 3em;
     --width: 10em;
     margin-bottom: var(--margin);
@@ -67,8 +68,3 @@
     align-items: center;
     text-decoration: none;
 }
-
-.btn-inscription:hover {
-    text-decoration: underline;
-}
-
